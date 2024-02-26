@@ -31,6 +31,29 @@ html {
     padding: 10px;
 }
 
+.descargar {
+    color: white;
+    /* Color del texto del enlace */
+    text-decoration: none;
+    /* Elimina el subrayado predeterminado del enlace */
+    transition: color 0.3s, font-size 0.3s;
+    /* Transición suave para el cambio de color y tamaño de fuente */
+}
+
+/* Estilo para el enlace cuando el mouse pasa por encima */
+.descargar:hover {
+    color: red;
+    /* Cambia el color del texto cuando se pasa el mouse por encima */
+    font-size: 1.1em;
+    /* Aumenta el tamaño de la fuente al pasar el mouse por encima */
+}
+
+/* Estilo para el enlace después de ser seleccionado */
+.descargar:visited {
+    color: white;
+    /* Cambia el color del texto después de ser seleccionado */
+}
+
 /* menu lateral */
 .inicio .contenido-seccion header nav {
     position: fixed;
