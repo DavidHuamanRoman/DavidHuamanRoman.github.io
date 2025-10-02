@@ -1,331 +1,270 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="David Fernando Huamán Román" />
-    <meta property="og:url" content="https://davidhuamanroman-docente.netlify.app/#inicio" />
-    <meta property="og:description" content="Mi página personal">
-    <meta property="og:image" itemprop="image" content="https://davidhuamanroman-docente.netlify.app/fotocartoon.jpeg"/>
-    <meta property="og:type" content="article" />
-    <meta property="og:locale" content="en_GB" />
-    <link rel="stylesheet" href="estilo.css">
-    <title>David Fernando Huamán Román</title>
-    <link rel="shortcut icon" href="./mifavicon.jpeg" type="image/x-icon">
+    <title>David Huamán Román | Docente y Capacitador</title>
+    <meta name="description" content="Portafolio profesional de David Huamán Román, docente y capacitador especializado en Administración Bancaria.">
+    <style>
+        /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
+
+        :root {
+            --background-color: #F8F9FA;
+            --primary-color: #0A2540; /* Azul oscuro */
+            --accent-color: #00C49A;  /* Verde/turquesa */
+            --text-color: #333333;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        /* 2. RESET Y ESTILOS GLOBALES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+        }
+
+        /* 3. BARRA DE NAVEGACIÓN (HEADER) */
+        .main-header {
+            background-color: #FFFFFF;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* 4. SECCIÓN PRINCIPAL (HERO) */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+        }
+        
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 350px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero-content {
+            flex: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content .value-proposition {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 196, 154, 0.4);
+        }
+
+        /* 5. PIE DE PÁGINA (FOOTER) */
+        .main-footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .main-footer p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .social-links a {
+            margin: 0 0.75rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* 6. DISEÑO RESPONSIVO */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .main-nav {
+                display: none; /* En un proyecto real, aquí se implementaría un menú hamburguesa con JS */
+            }
+
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-image {
+                margin-bottom: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
 </head>
-
 <body>
-    <!-- SECCION INICIO -->
-    <link itemprop="thumbnailUrl" href="https://davidhuamanroman-docente.netlify.app/fotocartoon.jpeg">
 
-    <span itemprop="thumbnail" itemscope itemtype="http://schema.org/ImageObject">
-    <link itemprop="url" href="https://davidhuamanroman-docente.netlify.app/fotocartoon.jpeg">
-    </span>
-    <section class="inicio" id="inicio">
-        <div class="contenido-seccion">
-            <header>
-                <div class="nav-bar" onclick="mostrarOcultarMenu()">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-                <nav id="nav" class="nav">
-                    <a href="#inicio">Inicio</a>
-                    <!-- <a href="#sobremi">Sobre mí</a> -->
-                    <a href="#resumen">Formación y Experiencia</a>
-                    <a href="#contacto">Contacto</a>
-                </nav>
-            </header>
-            <div class="info">
-                <h1>David Fernando Huamán Román</h1>
-                <h2>Docente en Administración de Empresas</h2>
-                <div class="redes">
-                    <a href="https://www.linkedin.com/in/david-huam%C3%A1n-rom%C3%A1n/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                <div>
-                    <a href="./DFHR.pdf" target="_blank" class="descargar">Descarga mi CV</a>
-                </div>
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">David Huamán Román</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#filosofia">Filosofía Docente</a></li>
+                    <li><a href="#portafolio">Portafolio de Evidencias</a></li>
+                    <li><a href="#trayectoria">Trayectoria Profesional</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/300" alt="Foto de perfil profesional de David Huamán Román">
             </div>
-            <div class="foto">
-                <img src="./fotocartoon.jpeg" alt="">
+            <div class="hero-content">
+                <h1>David Huamán Román</h1>
+                <p class="subtitle">Docente y Capacitador en Administración Bancaria</p>
+                <p class="value-proposition">
+                    Soy un docente que conecta la industria financiera con el aula. Fusiono una década de experiencia en docencia superior con mi trayectoria en el sector bancario para transformar la educación en Administración Bancaria. Mi enfoque es simple: usar la tecnología y la simulación práctica para que mis estudiantes no solo aprendan la teoría, sino que desarrollen las competencias exactas que el mercado financiero demanda hoy.
+                </p>
+                <a href="#portafolio" class="cta-button">Explorar mi Trabajo</a>
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- SECCION SOBRE MI -->
-    <section class="sobremi" id="sobremi">
-        <div class="contenido-seccion">
-            <!-- <h3>Detalles personales</h3> -->
-
-            <p class="especial">Apasionado por la educación, creo firmemente que es el medio para transformar vidas.</p>
-            <p>Licenciado en Administración de Empresas con 15 años de experiencia docente en el nivel superior y
-                más de 10 años de experiencia laborando en instituciones del Sistema Financiero.</p>
-            <p class="especial" style="margin-top: 0;margin-bottom: 20px;">Mi vocación es compartir mis conocimientos y
-                ver crecer profesionalmente a mis alumnos.</p>
-        </div>
-    </section>
-
-    <!-- SECCION RESUMEN -->
-    <section class="resumen" id="resumen">
-        <div class="contenido-seccion">
-            <!-- <h3>Formación y Experiencia</h3> -->
-            <div class="info">
-                <div class="col">
-                    <span class="titulo">Formación</span>
-                    <!-- Formación -->
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2024</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Mención en e-learning. En proceso.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Maestría en Educación.
-                                </h4>
-                                <p>Universidad de San Martín de Porres.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="datos">
-                                <h3>2024</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Aplicación de estrategias a las áreas críticas de la instrucción virtual. Análisis de
-                                los escollos con los que se encuentran los profesores en la docencia virtual y
-                                presencial.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Estrategias didácticas avanzadas en el aula virtual.
-                                </h4>
-                                <p>University of California, Irvine.</p>
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2023</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Para facilitar el aprendizaje social y emocional de los alumnos, el profesor debe
-                                conocer al alumno como persona. Para ello debe empezar por conocerse a sí mismo.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>El aprendizaje social y emocional del profesor.</h4>
-                                <p>University of Colorado Boulder.</p>
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2023</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Describir las mejores técnicas para mantener motivados a los alumnos y definir las
-                                mejores tácticas para garantizar una gestión ordenada de la clase.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Excelencia en la enseñanza en línea.</h4>
-                                <p>Johns Hopkins University.</p>
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2012</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Formación en la Gestión Comercial de Instituciones Financieras especializadas en
-                                Microfinanzas.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Programa de Administración para las Microfinanzas.</h4>
-                                <p>Universidad ESAN.</p>
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2012</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Desarrollo de aprendizajes significativos, programando y aplicando competencias,
-                                estrategias didácticas e instrumentos de evaluación en la actividad docente
-                                universitaria.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Diplomado de Especialización de Postgrado en Docencia Universitaria.</h4>
-                                <p>Universidad de San Martín de Porres.</p>
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2001 - 2006</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Décimo superior de mi promoción. Mención en Administración de Empresas.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Licenciado en Ciencias Administrativas.</h4>
-                                <p>Universidad Nacional Mayor de San Marcos.</p>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-
-                <div class="col">
-                    <span class="titulo">Experiencia Laboral</span>
-                    <!-- Experiencia -->
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2010 - 2025</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Entrenamiento de Asesores Financieros especializados en créditos para la micro y pequeña
-                                empresa para instituciones
-                                de Perú, Bolivia y Ecuador.
-                                Diseño de malla curricular de la especialidad. Redacción de manual del curso y
-                                desarrollo de un
-                                simulador en Excel de un Sistema de Evaluación Crediticia.
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4 style="padding-bottom:10px;">Fundación Internacional de Valores</h4>
-                                <p>Capacitador de Asesores Financieros</p>
-
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2018 - 2025</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Formación de profesionales en Administración de Empresas y Administración Bancaria,
-                                impartiendo cursos en gestión
-                                empresarial, finanzas y logística.
-
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Instituto Tecnológico de Administración de Empresas.
-                                </h4>
-                                <p>Docente en Administración</p>
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2011 - 2015</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Supervisión de la calidad de la cartera de créditos para micro y pequeña empresa de las
-                                agencias de Lima Este.
-
-                                Dirigí el Comité Empresarial para créditos mayores a S/100 mil. Capacité a Analistas de
-                                Crédito en la aplicación del
-                                Reglamento de Créditos.
-
-
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Caja Municipal de Ahorro y Crédito de Arequipa.</h4>
-                                </h4>
-                                <p>Analista Supervisor de Calidad de Créditos</p>
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2010 - 2011</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Captación, evaluación y seguimiento de calidad de cartera para clientes con Declaración Anual a la SUNAT menores a S/ 3 millones. 
-                                Productos de Capital de Trabajo, Activo Fijo, Línea Revolvente, Leasing y Líneas de Comercio Exterior. 
-
-
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Interbank.</h4>
-                                </h4>
-                                <p>Ejecutivo Senior Banca Pequeña Empresa</p>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+    <footer class="main-footer" id="contacto">
+        <div class="container">
+            <p>© 2025 David Huamán Román. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="mailto:email@ejemplo.com">Email</a>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- SECCION CONTACTO -->
-    <section class="contacto" id="contacto">
-        <div class="contenido-seccion">
-            <!-- <h2 class="titulo-seccion">Contacto</h2> -->
-            <h3>¡ Ponte en contacto ahora mismo !</h3>
-
-            <div class="fila">
-                <div class="col">
-                    <h2>
-                        <i class="fa-solid fa-phone"></i>WhatsApp
-                    </h2>
-                    <span class="info-contacto">951-642291</span>
-                </div>
-                <div class="col">
-                    <h2>
-                        <i class="fa-solid fa-envelope"></i> Correo
-                    </h2>
-                    <span class="info-contacto">davidfernando.huaman@unmsm.edu.pe</span>
-                </div>
-                <!-- <div class="col">
-                    <h2>
-                        <i class="fa-solid fa-globe"></i> Página Web
-                    </h2>
-                    <span class="info-contacto">martinshepard.com</span>
-                </div> -->
-            </div>
-        </div>
-    </section>
-
-    <script src="app.js"></script>
 </body>
-
 </html>
