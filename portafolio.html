@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Evidencias | David Huamán Román</title>
+    <meta name="description" content="Explora una selección de proyectos y recursos educativos desarrollados por David Huamán Román, incluyendo sílabos, materiales interactivos y simuladores.">
+    <link rel="icon" href="/Assets/favicon.png" type="image/png">
+    <style>
+        /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS (IDÉNTICO A PÁGINAS ANTERIORES) */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
+
+        :root {
+            --background-color: #F8F9FA;
+            --primary-color: #0A2540; /* Azul oscuro */
+            --accent-color: #00C49A;  /* Verde/turquesa */
+            --text-color: #333333;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        /* 2. RESET Y ESTILOS GLOBALES (IDÉNTICO A PÁGINAS ANTERIORES) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+        }
+
+        /* 3. BARRA DE NAVEGACIÓN (IDÉNTICO CON ENLACE ACTIVO AJUSTADO) */
+        .main-header {
+            background-color: #FFFFFF;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        .main-nav a.active {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* 4. ESTILOS PARA LA PÁGINA DE PORTAFOLIO (NUEVO) */
+        .content-page {
+            padding: 4rem 0;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(10, 37, 64, 0.1);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1; /* Empuja el botón hacia abajo */
+        }
+
+        .card .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #FFFFFF;
+            font-family: var(--font-body);
+            font-weight: 600;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            align-self: flex-start; /* Alinea el botón al inicio del eje transversal */
+            transition: background-color 0.3s ease;
+        }
+
+        .card .btn:hover {
+            background-color: #00a986; /* Un tono ligeramente más oscuro */
+        }
+
+        /* 5. PIE DE PÁGINA (IDÉNTICO A PÁGINAS ANTERIORES) */
+        .main-footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .main-footer p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .social-links a {
+            margin: 0 0.75rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* 6. DISEÑO RESPONSIVO (AJUSTES MENORES) */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .main-nav {
+                display: none; 
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .page-header p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">David Huamán Román</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="filosofia-docente.html">Filosofía Docente</a></li>
+                    <li><a href="portafolio.html" class="active">Portafolio de Evidencias</a></li>
+                    <li><a href="#">Trayectoria Profesional</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-page" id="portafolio">
+        <div class="container">
+            <header class="page-header">
+                <h1>Portafolio de Evidencias</h1>
+                <p>Aquí presento una selección de proyectos que demuestran mi enfoque en la creación de experiencias de aprendizaje prácticas, tecnológicas e innovadoras en el ámbito de la Administración Bancaria.</p>
+            </header>
+
+            <section class="portfolio-grid">
+                <article class="card">
+                    <h2>Diseño Curricular y Sílabos</h2>
+                    <p>Programas académicos y mallas curriculares diseñadas para alinear el aprendizaje con las demandas del sector financiero.</p>
+                    <a href="#" class="btn">Ver Proyectos</a>
+                </article>
+
+                <article class="card">
+                    <h2>Recursos Didácticos Interactivos</h2>
+                    <p>Materiales y casos prácticos en formatos como Genially y HTML5 que fomentan la participación y el aprendizaje activo.</p>
+                    <a href="#" class="btn">Ver Proyectos</a>
+                </article>
+
+                <article class="card">
+                    <h2>Capacitaciones en Video</h2>
+                    <p>Microlearnings y tutoriales en video diseñados para explicar conceptos complejos de manera clara y directa.</p>
+                    <a href="#" class="btn">Ver Proyectos</a>
+                </article>
+
+                <article class="card">
+                    <h2>Simulación y Módulos eLearning</h2>
+                    <p>Módulos SCORM y simuladores prácticos que permiten a los estudiantes desarrollar competencias en un entorno controlado.</p>
+                    <a href="#" class="btn">Ver Proyectos</a>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 David Huamán Román. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="mailto:email@ejemplo.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
