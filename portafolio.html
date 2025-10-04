@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simulador de Evaluación | David Huamán Román</title>
+    <title>Portafolio de Evidencias | David Huamán Román</title>
     <meta
       name="description"
-      content="Detalles del proyecto 'Módulo de Evaluación Crediticia para MyPES', un simulador en Excel diseñado para la especialización en Asesores Financieros."
+      content="Explora una selección de proyectos y recursos educativos desarrollados por David Huamán Román, incluyendo sílabos, materiales interactivos y simuladores."
     />
     <link rel="icon" href="/Assets/favicon.png" type="image/png" />
-
     <style>
       /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS (IDÉNTICO A PÁGINAS ANTERIORES) */
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap");
 
       :root {
         --background-color: #f8f9fa;
@@ -101,108 +100,75 @@
         font-weight: 700;
       }
 
-      /* 4. ESTILOS PARA LA PÁGINA DE DETALLE DE PROYECTO (NUEVO) */
+      /* 4. ESTILOS PARA LA PÁGINA DE PORTAFOLIO (NUEVO) */
       .content-page {
         padding: 4rem 0;
       }
 
-      .project-wrapper {
-        max-width: 800px;
-        margin: 0 auto;
-        background-color: #ffffff;
-        padding: 3rem;
-        border-radius: 8px;
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
-      }
-
-      .back-link {
-        display: inline-block;
-        margin-bottom: 2rem;
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s ease;
-      }
-
-      .back-link:hover {
-        color: var(--accent-color);
-      }
-
-      .project-wrapper h1 {
-        font-size: 2.5rem;
-        line-height: 1.2;
-      }
-
-      .project-wrapper hr {
-        border: 0;
-        height: 2px;
-        background-color: var(--accent-color);
-        margin: 1rem 0 2rem 0;
-        width: 80px;
-      }
-
-      .project-wrapper h2 {
-        font-size: 1.75rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .project-wrapper h3 {
-        font-size: 1.4rem;
-        margin-top: 2.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .project-wrapper p {
-        margin-bottom: 1rem;
-      }
-
-      .project-wrapper strong {
-        font-weight: 700;
-        color: var(--primary-color);
-      }
-
-      .project-wrapper ul {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      .project-wrapper li {
-        padding-left: 1.5rem;
-        position: relative;
-        margin-bottom: 0.75rem;
-      }
-
-      .project-wrapper li::before {
-        content: "›";
-        position: absolute;
-        left: 0;
-        top: -2px;
-        color: var(--accent-color);
-        font-weight: bold;
-        font-size: 1.5rem;
-      }
-
-      .download-button-wrapper {
+      .page-header {
         text-align: center;
-        margin-top: 3rem;
+        margin-bottom: 3rem;
       }
 
-      .download-btn {
+      .page-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .page-header p {
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        color: #555;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .card {
+        background-color: #ffffff;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(10, 37, 64, 0.1);
+      }
+
+      .card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .card p {
+        margin-bottom: 1.5rem;
+        flex-grow: 1; /* Empuja el botón hacia abajo */
+      }
+
+      .card .btn {
         display: inline-block;
         background-color: var(--accent-color);
         color: #ffffff;
-        font-family: var(--font-heading);
+        font-family: var(--font-body);
         font-weight: 600;
-        padding: 1rem 2.5rem;
+        padding: 0.7rem 1.5rem;
         border-radius: 5px;
         text-decoration: none;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        font-size: 1.1rem;
+        text-align: center;
+        align-self: flex-start; /* Alinea el botón al inicio del eje transversal */
+        transition: background-color 0.3s ease;
       }
 
-      .download-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 196, 154, 0.4);
+      .card .btn:hover {
+        background-color: #00a986; /* Un tono ligeramente más oscuro */
       }
 
       /* 5. PIE DE PÁGINA (IDÉNTICO A PÁGINAS ANTERIORES) */
@@ -229,31 +195,27 @@
         color: var(--accent-color);
       }
 
-      /* 6. DISEÑO RESPONSIVO */
+      /* 6. DISEÑO RESPONSIVO (AJUSTES MENORES) */
       @media (max-width: 768px) {
         .logo {
           font-size: 1.2rem;
         }
+
         .main-nav {
           display: none;
         }
-        .project-wrapper {
-          padding: 2rem;
-        }
-        .project-wrapper h1 {
+
+        .page-header h1 {
           font-size: 2rem;
         }
-        .project-wrapper h2 {
-          font-size: 1.5rem;
+        .page-header p {
+          font-size: 1rem;
         }
       }
 
       @media (max-width: 480px) {
         .container {
           padding: 0 1rem;
-        }
-        .project-wrapper {
-          padding: 1.5rem;
         }
       }
     </style>
@@ -278,68 +240,64 @@
       </div>
     </header>
 
-    <main class="content-page">
+    <main class="content-page" id="portafolio">
       <div class="container">
-        <div class="project-wrapper">
-          <a href="portafolio.html" class="back-link">‹ Volver al Portafolio</a>
+        <header class="page-header">
+          <h1>Portafolio de Evidencias</h1>
+          <p>
+            Aquí presento una selección de proyectos que demuestran mi enfoque
+            en la creación de experiencias de aprendizaje prácticas,
+            tecnológicas e innovadoras en el ámbito de la Administración
+            Bancaria.
+          </p>
+        </header>
 
-          <h1>Simulador de Evaluación Crediticia</h1>
-          <hr />
-
-          <article>
-            <h2>Módulo de Evaluación Crediticia para MyPES</h2>
-
+        <section class="portfolio-grid">
+          <article class="card">
+            <h2>Simuladores Educativos</h2>
             <p>
-              <strong>Contexto:</strong> Este recurso fue creado para el curso
-              “Análisis Crediticio de Mypes”, parte de la especialización en
-              Asesores Financieros. El desafío era simular el proceso completo
-              de evaluación crediticia, integrando información cualitativa y
-              cuantitativa para sustentar una decisión de crédito.
+              Entornos de aprendizaje interactivos y prácticos creados para
+              desarrollar la resolución de problemas y la toma de decisiones.
             </p>
-
-            <h3>Mi Contribución</h3>
-            <ul>
-              <li>
-                Diseñé y estructuré el módulo en Excel con macros y hojas
-                interconectadas.
-              </li>
-              <li>
-                Organicé los formularios de solicitud, informe de evaluación y
-                propuesta de crédito.
-              </li>
-              <li>
-                Incorporé herramientas financieras clave como indicadores, flujo
-                de efectivo y análisis de ventas.
-              </li>
-              <li>
-                Preparé el recurso como un simulador interactivo para la
-                práctica autónoma.
-              </li>
-            </ul>
-
-            <h3>Herramientas Utilizadas</h3>
-            <p>Microsoft Excel (con funciones avanzadas y macros).</p>
-
-            <h3>Resultados e Impacto</h3>
-            <p>
-              Los estudiantes lograron aplicar el proceso de análisis en un
-              entorno simulado, fortaleciendo su capacidad práctica y toma de
-              decisiones. El módulo se consolidó como un instrumento clave para
-              el aprendizaje autónomo, permitiendo la práctica sin riesgo.
-            </p>
+            <a href="simulador-de-evaluacion.html" class="btn">Ver Proyectos</a>
           </article>
 
-          <div class="download-button-wrapper">
-            <a
-              href="./Assets/Módulo de Evaluación 2.4.xlsm"
-              class="download-btn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              🔗 Descargar Módulo (Excel)
-            </a>
-          </div>
-        </div>
+          <article class="card">
+            <h2>Diseño Curricular y Sílabos</h2>
+            <p>
+              Programas académicos y mallas curriculares diseñadas para alinear
+              el aprendizaje con las demandas del sector financiero.
+            </p>
+            <a href="simulador-de-evaluacion.html" class="btn">Ver Proyectos</a>
+          </article>
+
+          <article class="card">
+            <h2>Recursos Didácticos Interactivos</h2>
+            <p>
+              Materiales y casos prácticos en formatos como Genially y HTML5 que
+              fomentan la participación y el aprendizaje activo.
+            </p>
+            <a href="#" class="btn">Ver Proyectos</a>
+          </article>
+
+          <article class="card">
+            <h2>Capacitaciones en Video</h2>
+            <p>
+              Microlearnings y tutoriales en video diseñados para explicar
+              conceptos complejos de manera clara y directa.
+            </p>
+            <a href="#" class="btn">Ver Proyectos</a>
+          </article>
+
+          <article class="card">
+            <h2>Módulos eLearning</h2>
+            <p>
+              Módulos SCORM usados para la gamificación que aumentan la
+              motivación y el compromiso de los estudiantes.
+            </p>
+            <a href="#" class="btn">Ver Proyectos</a>
+          </article>
+        </section>
       </div>
     </main>
 
@@ -347,8 +305,8 @@
       <div class="container">
         <p>© 2025 David Huamán Román. Todos los derechos reservados.</p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/david-huam%C3%A1n-rom%C3%A1n/" target="_blank">LinkedIn</a>
-          <a href="mailto:davidfernando.huaman@unmsm.edu.pe">Email</a>
+          <a href="" target="_blank">LinkedIn</a>
+          <a href="mailto:email@ejemplo.com">Email</a>
         </div>
       </div>
     </footer>
