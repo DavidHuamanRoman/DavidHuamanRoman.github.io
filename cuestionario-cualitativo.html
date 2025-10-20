@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario: Evaluación Cualitativa MYPE</title>
+    <style>
+        /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap');
+
+        :root {
+            --background-color: #F8F9FA;
+            --primary-color: #0A2540; /* Azul oscuro */
+            --accent-color: #00C49A;  /* Verde/turquesa */
+            --text-color: #333333;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        /* --- General Body & Typography --- */
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* --- Main Container --- */
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 20px 30px;
+        }
+
+        /* --- Headings & Visual Hierarchy --- */
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5em;
+            font-weight: 700;
+            font-family: var(--font-heading);
+        }
+
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+            margin-top: 40px;
+        }
+
+        /* --- Estilo para el Bloque del Caso --- */
+        .case-study-block {
+            background-color: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+
+        .case-study-block h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            border-left: none;
+            padding-left: 0;
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        .case-study-block h3 {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 5px;
+        }
+
+        .case-study-block h4 {
+            font-size: 1.1em;
+            color: #333;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .case-study-block p {
+            margin-bottom: 15px;
+        }
+
+        .case-study-block ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .case-study-block ul li {
+            margin-bottom: 8px;
+        }
+
+        /* --- Question Styling --- */
+        .question-block {
+            background-color: var(--background-color);
+            border: 1px solid #e7e7e7;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .question-block p {
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+        
+        .question-block .question-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .options-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .options-list li {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            cursor: default;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+        
+        .options-list li:hover {
+            background-color: #f7f7f7;
+            border-color: #b0b0b0;
+        }
+        
+        /* --- Association Table Styling --- */
+        .association-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .association-table td {
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        
+        .association-table td:first-child {
+            font-weight: 600;
+            background-color: #f7f9fa;
+        }
+
+        /* --- Details/Summary for Answers --- */
+        details {
+            margin-top: 20px;
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            background-color: #f0fdf9;
+        }
+
+        summary {
+            padding: 12px 15px;
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+            outline: none;
+            display: block; 
+            list-style: none;
+            position: relative;
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        summary:hover {
+            background-color: #e0fbf4;
+        }
+        
+        /* Flecha personalizada para <summary> */
+        summary::after {
+            content: '►';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            color: var(--primary-color);
+            transition: transform 0.2s ease;
+        }
+        
+        details[open] > summary::after {
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        .justification {
+            padding: 15px;
+            border-top: 1px solid var(--accent-color);
+            background-color: #ffffff;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .justification strong {
+            color: var(--primary-color);
+        }
+
+        .correct-answer {
+            font-weight: bold;
+            color: #1e8e3e;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        /* Viñetas personalizadas para la justificación */
+        .custom-bullet {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .custom-bullet li {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="%2300C49A" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') no-repeat left 0.15em / 20px 20px;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+
+        /* --- Responsive Design --- */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .quiz-container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            .case-study-block h2 {
+                font-size: 1.5em;
+            }
+
+            .case-study-block h3 {
+                font-size: 1.2em;
+            }
+
+            /* Ajuste de tabla para móviles */
+            .association-table, .association-table tbody, .association-table tr, .association-table td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .association-table tr {
+                margin-bottom: 15px;
+                border: 1px solid #e0e0e0;
+                border-radius: 4px;
+            }
+            
+            .association-table td {
+                border: none;
+                border-bottom: 1px solid #f0f0f0;
+                text-align: left;
+            }
+            
+            .association-table td:last-child {
+                border-bottom: none;
+            }
+            
+            .association-table td:first-child {
+                border-radius: 4px 4px 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+
+        <div class="case-study-block">
+            <h2>Análisis Cualitativo del Caso de Crédito</h2>
+            
+            <h3>Introducción del Caso</h3>
+            <p>Mariela Salcedo Espinola y Samuel Enciso Talavera son una pareja de esposos y socios que solicitan un crédito de S/ 30,000 a 24 meses para realizar acabados en su vivienda. Ambos son dueños de un restaurante y un puesto de venta de bebidas y golosinas, negocios con los que sustentan a su familia.</p>
+
+            <h3>1. ANÁLISIS CUALITATIVO DEL ENTORNO FAMILIAR</h3>
+            
+            <h4>1.1. DESCRIPCIÓN DE LA FAMILIA</h4>
+            <p>La familia nuclear está compuesta por cuatro miembros: Samuel (45), Mariela (42) y sus dos hijos varones de 15 y 10 años. Viven en una casa propia ubicada en la Cooperativa Chancas de Andahuaylas, en Ate. Son la única familia que reside en el inmueble.</p>
+            <p>La dinámica familiar es colaborativa y unida. Las decisiones importantes, tanto del hogar como del negocio, se toman en pareja. Mariela es el corazón del negocio gracias a su buena sazón, mientras que Samuel es el soporte logístico y administrativo. Los hijos, al ser estudiantes, apoyan con tareas menores en el negocio después del colegio, como la limpieza de mesas, lo que demuestra una cultura de trabajo inculcada desde jóvenes. La familia goza de buena salud y no se reportan dolencias crónicas que puedan generar gastos imprevistos. Su principal proyecto a futuro es terminar los acabados de su casa para darles mayor comodidad a sus hijos y asegurar que ambos terminen sus estudios escolares y superiores.</p>
+
+            <h4>1.2. REFERENCIAS VECINALES</h4>
+            <p>Durante la visita domiciliaria, se conversó con dos vecinos colindantes, quienes los conocen desde hace más de 15 años. Ambos coincidieron en que son una familia trabajadora, tranquila y muy respetada en el barrio. No se tiene registro de conflictos vecinales ni se observa la presencia de prestamistas informales en la zona, lo que refuerza su imagen de personas ordenadas y confiables.</p>
+
+            <h4>1.3. ESTABILIDAD Y RELACIÓN DE PROPIEDAD CON EL INMUEBLE</h4>
+            <p>La familia tiene una alta estabilidad domiciliaria, viviendo en la misma dirección por aproximadamente 20 años. La vivienda es de su propiedad, valorizada en S/ 250,000. La construyeron progresivamente con los frutos de su trabajo y esfuerzo. Se verificó que la propiedad cuenta con título inscrito en Registros Públicos a nombre de ambos cónyuges y que los impuestos municipales y los recibos de servicios están al día y a su nombre, lo que evidencia un alto grado de formalidad y responsabilidad.</p>
+
+            <h3>2. ANÁLISIS CUALITATIVO DEL ENTORNO DEL NEGOCIO</h3>
+
+            <h4>2.1. DESCRIPCIÓN DEL NEGOCIO</h4>
+            <p>Los clientes administran dos negocios complementarios en un mismo local:</p>
+            <ul>
+                <li>Un restaurante que ofrece menús económicos (S/ 10) para desayuno y almuerzo.</li>
+                <li>Una tienda que vende bebidas y golosinas por las tardes y noches.</li>
+            </ul>
+            <p>El negocio está estratégicamente ubicado en el último paradero de la línea de transporte público 35, en Ate. Sus principales clientes son los choferes, cobradores y dirigentes de la empresa de transportes, lo que les asegura un flujo constante de comensales. El factor diferencial clave es la excelente sazón de Mariela, que ha fidelizado a su clientela.</p>
+
+            <h4>2.2. REFERENCIAS COMERCIALES</h4>
+            <p>Las referencias comerciales son positivas. La directiva de la empresa de transportes, a quienes les alquilan el espacio , los considera buenos inquilinos, puntuales en sus pagos y de total confianza, al punto de que les otorgan crédito para sus consumos. Asimismo, sus proveedores, como el de gaseosas y el de pollo, les otorgan líneas de crédito comerciales a una semana, las cuales, según se pudo constatar, son pagadas puntualmente. No se identificó relación alguna con prestamistas informales. Su calificación 100% normal en el sistema financiero respalda esta conducta.</p>
+
+            <h4>2.3. ORÍGENES DEL NEGOCIO</h4>
+            <p>El negocio familiar inició hace aproximadamente cinco años. Samuel trabajó previamente en la empresa de seguridad Liderman. Con la liquidación de ese empleo y sus ahorros personales, decidieron emprender. La motivación principal fue el deseo de Mariela de capitalizar su talento en la cocina y la visión de ambos de construir un patrimonio para sus hijos. Empezaron de forma modesta, con pocas mesas, pero gracias a la calidad de su comida y su buen trato, el negocio creció hasta convertirse en el preferido de los transportistas del paradero.</p>
+
+            <h4>2.4. FODA</h4>
+            <p><strong>Fortalezas:</strong></p>
+            <ul>
+                <li>Producto de Calidad: La sazón de Mariela es el principal activo y diferenciador del negocio.</li>
+                <li>Ubicación Estratégica: Operan en un punto con un público cautivo y constante (paradero de buses).</li>
+                <li>Buena Reputación: Excelente historial de pago en el sistema financiero y con proveedores.</li>
+                <li>Unidad Familiar: El trabajo en equipo de la familia fortalece la operación del negocio.</li>
+            </ul>
+            <p><strong>Oportunidades:</strong></p>
+            <ul>
+                <li>Crecimiento: Potencial para ampliar la oferta de la tarde/noche (bebidas y golosinas).</li>
+                <li>Nuevos Servicios: Podrían ofrecer servicios de catering para eventos de la misma empresa de transportes.</li>
+                <li>Optimización: Formalizar el sistema de créditos a clientes para reducir el riesgo de no pago.</li>
+            </ul>
+            <p><strong>Debilidades:</strong></p>
+            <ul>
+                <li>Concentración de Clientes: Dependen casi exclusivamente de los trabajadores de una sola empresa de transporte.</li>
+                <li>Gestión de Cuentas por Cobrar: El sistema de "fiado" en un cuaderno es informal y riesgoso.</li>
+                <li>Nivel de Endeudamiento: Ya cuentan con deudas personales y de negocio que deben gestionar.</li>
+            </ul>
+            <p><strong>Amenazas:</strong></p>
+            <ul>
+                <li>Competencia: La aparición de un nuevo restaurante en la zona podría reducir sus ventas.</li>
+                <li>Riesgo de Reubicación: Si la empresa de transportes decide mover su paradero, perderían a toda su clientela.</li>
+                <li>Incremento de Costos: Un aumento significativo en el alquiler del local podría afectar su rentabilidad.</li>
+            </ul>
+        </div>
+        <h1>Cuestionario de Evaluación Cualitativa</h1>
+
+        <h2>1. Preguntas de selección múltiple con justificación</h2>
+        
+        <div class="question-block">
+            <p class="question-title">1. Basado en el FODA presentado en el "Análisis Cualitativo del Caso de Crédito", ¿cuál de las siguientes opciones representa la <strong>amenaza</strong> más significativa para la sostenibilidad a largo plazo de los negocios de Mariela y Samuel?</p>
+            <ul class="options-list">
+                <li>a) El incremento de los costos de alquiler del local.</li>
+                <li>b) La aparición de un nuevo restaurante competidor en la zona.</li>
+                <li>c) El sistema informal de "fiado" que manejan en un cuaderno.</li>
+                <li>d) La posible reubicación del paradero de la empresa de transportes.</li>
+                <li>e) El nivel de endeudamiento actual que ya maneja la pareja.</li>
+            </ul>
+            <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Respuesta Correcta: d)</span>
+                    <p><strong>Explicación:</strong></p>
+                    <ul class="custom-bullet">
+                        <li><strong>Opción (d) es la correcta.</strong> Esta es la amenaza más crítica porque el análisis describe el negocio como "estratégicamente ubicado" y a sus clientes como un "público cautivo" (choferes, cobradores). Si el paradero se reubica, los clientes no solo se reducirían, sino que *desaparecerían por completo*, lo que constituye un riesgo existencial para el negocio.</li>
+                        <li><strong>Opción (a) es incorrecta.</strong> Aunque es una amenaza, un incremento en el alquiler afectaría la rentabilidad, pero es un costo que potentially podría negociarse o absorberse. No implica el cierre inmediato.</li>
+                        <li><strong>Opción (b) es incorrecta.</strong> La competencia es una amenaza común. Sin embargo, el análisis identifica una fortaleza clave en la "excelente sazón de Mariela", lo que le da una ventaja diferencial para competir.</li>
+                        <li><strong>Opción (c) es incorrecta.</strong> El "fiado" es una *debilidad* interna de gestión (riesgo de liquidez y control), no una *amenaza* externa.</li>
+                        <li><strong>Opción (e) es incorrecta.</strong> El endeudamiento es una *debilidad* interna (gestión de pasivos), no una *amenaza* del entorno.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div class="question-block">
+            <p class="question-title">2. ¿Cuál de los siguientes factores del "Análisis Cualitativo" es el indicador más sólido de la <strong>"Voluntad de Pago"</strong> de la pareja?</p>
+            <ul class="options-list">
+                <li>a) La posesión de una vivienda propia valorizada en S/ 250,000.</li>
+                <li>b) El hecho de que el negocio inició con la liquidación de Samuel y ahorros personales.</li>
+                <li>c) La calificación 100% normal en el sistema financiero y el pago puntual a proveedores.</li>
+                <li>d) La excelente sazón de Mariela, que fideliza a su clientela.</li>
+                <li>e) La dinámica familiar colaborativa y la cultura de trabajo de los hijos.</li>
+            </ul>
+            <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Respuesta Correcta: c)</span>
+                    <p><strong>Explicación:</strong></p>
+                    <ul class="custom-bullet">
+                        <li><strong>Opción (c) es la correcta.</strong> La "Voluntad de Pago" se mide por el comportamiento histórico frente a las deudas. El análisis destaca una "calificación 100% normal" y "pago puntual a proveedores", lo cual es la evidencia directa y más fuerte de su carácter y voluntad de cumplir sus obligaciones.</li>
+                        <li><strong>Opción (a) es incorrecta.</strong> La vivienda es un indicador de "Arraigo" y "Capacidad de Pago" (garantía), pero no demuestra directamente la *voluntad* de pagar una deuda.</li>
+                        <li><strong>Opción (b) es incorrecta.</strong> El origen del negocio es una fortaleza que demuestra esfuerzo, pero es menos relevante para predecir el comportamiento de pago que el historial crediticio mismo.</li>
+                        <li><strong>Opción (d) es incorrecta.</strong> La sazón es una fortaleza del negocio ("Producto de Calidad"), pero no es un rasgo de carácter financiero.</li>
+                        <li><strong>Opción (e) es incorrecta.</strong> La dinámica familiar es una fortaleza social que soporta el negocio, pero no es un indicador financiero directo de voluntad de pago.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <h2>2. Preguntas de análisis de escenarios</h2>
+
+        <div class="question-block">
+            <p class="question-title">3. Usted es el analista de créditos que evalúa a Mariela y Samuel. Al realizar la visita, conversa con la directiva de la empresa de transportes, quienes confirman que son excelentes inquilinos. Sin embargo, mencionan extraoficialmente que "se está evaluando mover el paradero a un local más grande a unas 10 cuadras de distancia, pero no hay nada decidido". Según el "Análisis Cualitativo del Caso de Crédito", ¿cuál sería la acción más prudente y justificada?</p>
+            <ul class="options-list">
+                <li>a) Denegar el crédito inmediatamente, ya que la amenaza principal del negocio está por materializarse.</li>
+                <li>b) Aprobar el crédito sin modificaciones, ya que la familia tiene casa propia y buen historial de pago, lo que garantiza el cumplimiento.</li>
+                <li>c) Aprobar el crédito, pero condicionarlo a que el destino de los fondos sea para capital de trabajo y no para la vivienda.</li>
+                <li>d) Solicitar a la pareja un plan de contingencia detallado sobre cómo enfrentarían una reubicación del paradero antes de tomar una decisión.</li>
+                <li>e) Ignorar el comentario, ya que es un rumor no confirmado y el análisis de referencias actual es positivo.</li>
+            </ul>
+            <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Respuesta Correcta: d)</span>
+                    <p><strong>Explicación:</strong></p>
+                    <ul class="custom-bullet">
+                        <li><strong>Opción (d) es la correcta.</strong> El FODA identifica el "Riesgo de Reubicación" como la principal amenaza. Este nuevo escenario eleva la probabilidad de esa amenaza. La acción más prudente no es denegar de plano (la familia tiene fortalezas), sino evaluar su capacidad de respuesta ante esta amenaza específica, solicitando un plan de contingencia.</li>
+                        <li><strong>Opción (a) es incorrecta.</strong> Denegar inmediatamente ignora las múltiples fortalezas del perfil, como su historial 100% normal, la unidad familiar y sus activos (casa propia). La evaluación debe ser integral.</li>
+                        <li><strong>Opción (b) es incorrecta.</strong> Aprobar sin más sería negligente, pues ignora una nueva información vital que agrava la principal amenaza identificada en el análisis. Las garantías (casa) no sustituyen la capacidad de pago, que se vería comprometida.</li>
+                        <li><strong>Opción (c) es incorrecta.</strong> El destino del crédito (acabados de casa) es para consumo. Cambiarlo a capital de trabajo no mitiga el riesgo de que el negocio *deje de existir* en esa ubicación.</li>
+                        <li><strong>Opción (e) es incorrecta.</strong> Ignorar un rumor de una fuente tan directa (la directiva) es una mala práctica de análisis de riesgo. El analista debe indagar proactivamente sobre los riesgos identificados.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div class="question-block">
+            <p class="question-title">4. El "Análisis Cualitativo" menciona que la pareja ya tiene deudas personales (Interbank) y de negocio (Mibanco, Caja Tacna), además de cuentas por pagar a proveedores (pollo, gaseosas). A pesar de esto, su calificación es 100% normal. ¿Qué conclusión es la más acertada sobre la gestión financiera de la pareja?</p>
+            <ul class="options-list">
+                <li>a) Tienen un grave problema de sobreendeudamiento y están a punto de quebrar.</li>
+                <li>b) Demuestran una gestión financiera desordenada al mezclar créditos personales con los del negocio.</li>
+                <li>c) Son capaces de gestionar múltiples deudas de forma concurrente, pero esto representa un riesgo para su liquidez a corto plazo.</li>
+                <li>d) Las deudas con proveedores no son relevantes, ya que son parte normal del negocio y no afectan la evaluación crediticia.</li>
+                <li>e) La deuda de Interbank es personal de Samuel y no debe ser considerada en la evaluación del negocio de Mariela.</li>
+            </ul>
+            <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Respuesta Correcta: c)</span>
+                    <p><strong>Explicación:</strong></p>
+                    <ul class="custom-bullet">
+                        <li><strong>Opción (c) es la correcta.</strong> Esta conclusión es la más balanceada y precisa. Reconoce la fortaleza (buen historial pagando múltiples deudas) pero también identifica la debilidad (riesgo en la liquidez por la cantidad de obligaciones).</li>
+                        <li><strong>Opción (a) es incorrecta.</strong> Es una exageración. Su historial 100% normal contradice la idea de una quiebra inminente.</li>
+                        <li><strong>Opción (b) es incorrecta.</strong> En una MYPE, es común y a veces estratégico que las finanzas personales y del negocio se crucen. No es necesariamente "desordenado" si lo gestionan bien, como parece ser el caso.</li>
+                        <li><strong>Opción (d) es incorrecta.</strong> Las deudas a proveedores son pasivos de corto plazo y son cruciales para entender la liquidez real del negocio.</li>
+                        <li><strong>Opción (e) es incorrecta.</strong> En la evaluación de una MYPE familiar, la "unidad familiar" es el sujeto de crédito. Todas las deudas, personales o de negocio, afectan la capacidad de pago total de la familia.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <h2>3. Preguntas de ordenamiento o secuenciación</h2>
+        
+        <div class="question-block">
+            <p class="question-title">5. Ordene los siguientes hallazgos extraídos del "Análisis Cualitativo del Caso de Crédito" según su impacto en la evaluación, comenzando por el que representa el <strong>mayor riesgo</strong> (más negativo) y terminando con el que representa la <strong>mayor fortaleza</strong> (más positivo).</p>
+            <ol style="padding-left: 20px;">
+                <li>La familia tiene una vivienda propia valorizada en S/ 250,000 donde reside hace 20 años.</li>
+                <li>El negocio depende casi exclusivamente de los trabajadores de una sola empresa de transporte.</li>
+                <li>La pareja mantiene un sistema de "fiado" (cuentas por cobrar) en un cuaderno informal.</li>
+                <li>La calificación de la pareja es 100% normal en el sistema financiero.</li>
+                <li>El negocio inició hace 5 años con la liquidación de Samuel y ahorros personales.</li>
+            </ol>
+             <ul class="options-list">
+                <li>a) 3, 2, 5, 4, 1</li>
+                <li>b) 2, 3, 5, 1, 4</li>
+                <li>c) 2, 3, 5, 4, 1</li>
+                <li>d) 3, 5, 2, 1, 4</li>
+                <li>e) 5, 3, 2, 4, 1</li>
+            </ul>
+            <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Secuencia Correcta: c) (2, 3, 5, 4, 1)</span>
+                    <p><strong>Justificación:</strong> La secuencia sigue una lógica de priorización de riesgo correcta.</p>
+                    <ol>
+                        <li><b>2 (Mayor Riesgo):</b> La "Concentración de Clientes" es la principal amenaza/debilidad, ya que un solo evento (mudanza del paradero) destruye la fuente de ingresos.</li>
+                        <li><b>3 (Riesgo Alto):</b> El "fiado" informal es una debilidad de gestión grave que impacta directamente la liquidez y el control.</li>
+                        <li><b>5 (Neutral/Positivo Leve):</b> Los orígenes del negocio son positivos (capital propio), pero 5 años es un tiempo de operación moderado. Es menos relevante que los riesgos actuales o el historial de pago.</li>
+                        <li><b>4 (Fortaleza Alta):</b> El historial de pago 100% normal es una fortaleza clave que evidencia "voluntad de pago".</li>
+                        <li><b>1 (Mayor Fortaleza):</b> La vivienda propia de 20 años es el principal indicador de "arraigo" familiar y estabilidad, una fortaleza cualitativa de gran peso.</li>
+                    </ol>
+                </div>
+            </details>
+        </div>
+
+        <div class="question-block">
+            <p class="question-title">6. Ordene los siguientes factores que demuestran "Arraigo" (estabilidad y permanencia), desde el indicador más fuerte hasta el más débil.</p>
+            <ol style="padding-left: 20px;">
+                <li>Negocio operando en un local alquilado.</li>
+                <li>Negocio con 5 años de antigüedad.</li>
+                <li>Crédito comercial otorgado por proveedores.</li>
+                <li>Buenas referencias de vecinos que los conocen por más de 15 años.</li>
+                <li>Vivienda propia en la misma dirección por 20 años.</li>
+            </ol>
+             <ul class="options-list">
+                <li>a) 5, 4, 3, 2, 1</li>
+                <li>b) 1, 2, 3, 4, 5</li>
+                <li>c) 5, 4, 2, 3, 1</li>
+                <li>d) 4, 5, 3, 2, 1</li>
+                <li>e) 5, 4, 3, 2, 1</li>
+            </ul>
+            <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Secuencia Correcta: e) (5, 4, 3, 2, 1)</span>
+                    <p><strong>Justificación:</strong> El arraigo se mide por la permanencia y la propiedad.</p>
+                    <ol>
+                        <li><b>5 (Más Fuerte):</b> El arraigo domiciliario (20 años en casa propia) es el indicador más sólido de estabilidad de vida.</li>
+                        <li><b>4 (Fuerte):</b> El arraigo social (referencias vecinales de 15 años) refuerza la estabilidad domiciliaria y el carácter.</li>
+                        <li><b>3 (Moderado):</b> El arraigo comercial (crédito de proveedores) demuestra confianza y permanencia en el rubro.</li>
+                        <li><b>2 (Débil):</b> 5 años de antigüedad del negocio es bueno, pero más débil que los 15-20 años de arraigo domiciliario/social.</li>
+                        <li><b>1 (Más Débil/Nulo):</b> Operar en un local alquilado es, de hecho, una *falta* de arraigo comercial, ya que dependen de un tercero para operar. Es el indicador más débil.</li>
+                    </ol>
+                </div>
+            </details>
+        </div>
+
+        <h2>4. Preguntas de asociación compleja</h2>
+        
+        <div class="question-block">
+            <p class="question-title">7. Relacione los conceptos del FODA (Columna A) con la evidencia específica que los respalda, según el "Análisis Cualitativo del Caso de Crédito" (Columna B).</p>
+            <table class="association-table">
+                <tbody>
+                    <tr><td>1. Producto de Calidad</td><td>I. "Su calificación es 100% normal en los doce últimos meses".</td></tr>
+                    <tr><td>2. Buena Reputación</td><td>II. "Operan en el último paradero de la línea de transporte público 35".</td></tr>
+                    <tr><td>3. Ubicación Estratégica</td><td>III. "El sistema de 'fiado' en un cuaderno es informal y riesgoso".</td></tr>
+                    <tr><td>4. Gestión de Cuentas por Cobrar</td><td>IV. "La excelente sazón de Mariela... ha fidelizado a su clientela".</td></tr>
+                    <tr><td>5. Concentración de Clientes</td><td>V. "Sus principales clientes son los choferes, cobradores y dirigentes...".</td></tr>
+                </tbody>
+            </table>
+            <ul class="options-list">
+                <li>a) 1-I, 2-IV, 3-II, 4-III, 5-V</li>
+                <li>b) 1-IV, 2-I, 3-II, 4-V, 5-III</li>
+                <li>c) 1-IV, 2-I, 3-II, 4-III, 5-V</li>
+                <li>d) 1-II, 2-I, 3-V, 4-III, 5-IV</li>
+                <li>e) 1-IV, 2-III, 3-I, 4-V, 5-II</li>
+            </ul>
+            <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Respuesta Correcta: c)</span>
+                    <p><strong>Justificación:</strong></p>
+                    <ul class="custom-bullet">
+                        <li><strong>1-IV:</strong> La fortaleza "Producto de Calidad" se sustenta en la "excelente sazón de Mariela".</li>
+                        <li><strong>2-I:</strong> La fortaleza "Buena Reputación" se evidencia objetivamente en la "calificación 100% normal".</li>
+                        <li><strong>3-II:</strong> La fortaleza "Ubicación Estratégica" se describe como estar en el "último paradero de la línea 35".</li>
+                        <li><strong>4-III:</strong> La debilidad "Gestión de Cuentas por Cobrar" se explica por el "sistema de 'fiado' en un cuaderno informal".</li>
+                        <li><strong>5-V:</strong> La debilidad "Concentración de Clientes" se demuestra porque sus "principales clientes son los choferes, cobradores y dirigentes" de *una sola* empresa.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div class="question-block">
+            <p class="question-title">8. Relacione a cada miembro de la unidad familiar/comercial (Columna A) con su rol o contribución principal (Columna B) según el análisis.</p>
+            <table class="association-table">
+                <tbody>
+                    <tr><td>1. Mariela</td><td>I. Son la principal fuente de clientela cautiva y actúan como arrendadores.</td></tr>
+                    <tr><td>2. Samuel</td><td>II. Representa la fortaleza "Producto de Calidad" gracias a su buena sazón.</td></tr>
+                    <tr><td>3. Los Hijos</td><td>III. Apoyan con tareas menores, demostrando una cultura de trabajo familiar.</td></tr>
+                    <tr><td>4. La Directiva (Línea 35)</td><td>IV. Es el soporte logístico/administrativo y tiene experiencia laboral previa en Liderman.</td></tr>
+                </tbody>
+            </table>
+            <ul class="options-list">
+                <li>a) 1-II, 2-IV, 3-III, 4-I</li>
+                <li>b) 1-IV, 2-II, 3-I, 4-III</li>
+                <li>c) 1-II, 2-III, 3-IV, 4-I</li>
+                <li>d) 1-III, 2-IV, 3-II, 4-I</li>
+                <li>e) 1-I, 2-II, 3-III, 4-IV</li>
+            </ul>
+            <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Respuesta Correcta: a)</span>
+                    <p><strong>Justificación:</strong></p>
+                    <ul class="custom-bullet">
+                        <li><strong>1-II:</strong> Mariela es el "corazón del negocio" y su "buena sazón" es la fortaleza "Producto de Calidad".</li>
+                        <li><strong>2-IV:</strong> Samuel es el "soporte logístico y administrativo" y el análisis menciona su trabajo previo en Liderman.</li>
+                        <li><strong>3-III:</strong> Los hijos "apoyan con tareas menores", demostrando la cultura de trabajo.</li>
+                        <li><strong>4-I:</strong> La Directiva de la línea 35 son sus principales clientes (cautivos) y también sus arrendadores (les alquilan el espacio).</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <h2>5. Preguntas de selección múltiple con múltiples respuestas correctas</h2>
+
+        <div class="question-block">
+            <p class="question-title">9. Según el "Análisis Cualitativo del Caso de Crédito", ¿cuáles de los siguientes factores evidencian un fuerte <strong>"arraigo"</strong> (estabilidad y permanencia en el tiempo) de la unidad familiar y del negocio? (Seleccione todas las que apliquen)</p>
+            <ul class="options-list">
+                <li>a) La familia tiene una vivienda propia donde reside desde hace 20 años.</li>
+                <li>b) Mariela tiene una excelente sazón que ha fidelizado a sus clientes.</li>
+                <li>c) El negocio opera en un local alquilado a la directiva de la empresa de transportes.</li>
+                <li>d) Los proveedores de gaseosas y pollo les otorgan líneas de crédito comerciales.</li>
+                <li>e) Los dos hijos de la pareja estudian en colegios de la zona.</li>
+            </ul>
+             <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Respuestas Correctas: a), d)</span>
+                    <p><strong>Justificación:</strong></p>
+                    <ul class="custom-bullet">
+                        <li><strong>(a) Correcta:</strong> Este es el indicador de *arraigo domiciliario* más fuerte. 20 años de residencia en una casa propia demuestran una estabilidad familiar y patrimonial total.</li>
+                        <li><strong>(b) Incorrecta:</strong> La buena sazón es una fortaleza del *producto*, pero no demuestra arraigo (permanencia). Podrían tener buena sazón y haberse mudado 5 veces.</li>
+                        <li><strong>(c) Incorrecta:</strong> Operar en un local *alquilado* representa, de hecho, una falta de arraigo comercial. Su permanencia depende de un tercero (la directiva).</li>
+                        <li><strong>(d) Correcta:</strong> Este es un indicador de *arraigo comercial*. Que los proveedores les den crédito demuestra una relación de confianza construida en el tiempo, lo que implica estabilidad y permanencia en la actividad comercial.</li>
+                        <li><strong>(e) Incorrecta:</strong> Aunque el texto menciona que tienen dos hijos de 10 y 15 años, *no especifica* que estudien en colegios de la zona. Esta es una inferencia no respaldada por el documento.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div class="question-block">
+            <p class="question-title">10. Según el FODA del "Análisis Cualitativo", ¿cuáles de las siguientes opciones son clasificadas correctamente como riesgos (Debilidades o Amenazas) para el negocio? (Seleccione todas las que apliquen).</p>
+            <ul class="options-list">
+                <li>a) El uso de un cuaderno para el sistema de "fiado".</li>
+                <li>b) La posible mudanza del paradero de buses.</li>
+                <li>c) La excelente sazón de Mariela.</li>
+                <li>d) La alta dependencia de los trabajadores de una sola empresa de transporte.</li>
+                <li>e) El potencial para ampliar la venta de golosinas en la noche.</li>
+            </ul>
+             <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Respuestas Correctas: a), b), d)</span>
+                    <p><strong>Justificación:</strong></p>
+                    <ul class="custom-bullet">
+                        <li><strong>(a) Correcta:</strong> Es la debilidad "Gestión de Cuentas por Cobrar".</li>
+                        <li><strong>(b) Correcta:</strong> Es la amenaza "Riesgo de Reubicación".</li>
+                        <li><strong>(c) Incorrecta:</strong> Esta es la fortaleza "Producto de Calidad".</li>
+                        <li><strong>(d) Correcta:</strong> Esta es la debilidad "Concentración de Clientes".</li>
+                        <li><strong>(e) Incorrecta:</strong> Esta es la oportunidad "Crecimiento".</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <h2>6. Preguntas de Verdadero / Falso con varias afirmaciones</h2>
+
+        <div class="question-block">
+            <p class="question-title">11. Lea las siguientes afirmaciones sobre el "Análisis Cualitativo del Caso de Crédito" y determine si son Verdaderas (V) o Falsas (F).</p>
+            <ul class="options-list" style="background: none; border: none; padding: 0;">
+                <li>I. El análisis considera que la dinámica familiar colaborativa es una fortaleza para la operación del negocio.</li>
+                <li>II. El negocio tiene más de 10 años de antigüedad, lo que coincide con la edad del hijo menor.</li>
+                <li>III. El principal activo de la familia es la vivienda donde residen, valorizada en S/ 250,000.</li>
+                <li>IV. El crédito que solicitan es para comprar una nueva exhibidora y mejorar el local del restaurante.</li>
+                <li>V. El análisis concluye que la familia no tiene experiencia crediticia previa.</li>
+            </ul>
+            <p><strong>Alternativas:</strong></p>
+            <ul class="options-list">
+                <li>a) V, F, V, V, F</li>
+                <li>b) V, F, V, F, F</li>
+                <li>c) F, V, F, V, F</li>
+                <li>d) V, V, F, F, V</li>
+                <li>e) F, F, V, F, V</li>
+            </ul>
+            <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Respuesta Correcta: b) (V, F, V, F, F)</span>
+                    <p><strong>Justificación:</strong></p>
+                    <ul class="custom-bullet">
+                        <li><b>I (V) Verdadero:</b> El análisis describe la dinámica como "colaborativa y unida" y menciona que el "trabajo en equipo de la familia fortalece la operación del negocio".</li>
+                        <li><b>II (F) Falso:</b> El análisis indica que el negocio "inició hace aproximadamente cinco años".</li>
+                        <li><b>III (V) Verdadero:</b> El análisis detalla que la vivienda propia está "valorizada en S/ 250,000", siendo el activo de mayor valor mencionado (el terreno de S/ 100,000 es menor).</li>
+                        <li><b>IV (F) Falso:</b> El análisis indica que la solicitud actual es para "realizar acabados en su vivienda". Las compras de la exhibidora y mejoras del local fueron destinos de créditos *pasados* (Caja Tacna y Mibanco).</li>
+                        <li><b>V (F) Falso:</b> El análisis contradice esto explícitamente, mencionando créditos previos en Interbank, Caja Tacna y Mibanco, además de un historial 100% normal.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div class="question-block">
+            <p class="question-title">12. Determine la veracidad (V) o falsedad (F) de las siguientes afirmaciones financieras y de ubicación extraídas del caso.</p>
+            <ul class="options-list" style="background: none; border: none; padding: 0;">
+                <li>I. El análisis identifica que la familia tiene deudas tanto personales como de negocio.</li>
+                <li>II. El crédito solicitado de S/ 30,000 será usado para comprar una nueva exhibidora para el negocio.</li>
+                <li>III. Las referencias comerciales indican que los proveedores les fían productos.</li>
+                <li>IV. La familia no tiene activos patrimoniales, ya que la casa donde viven es de la Cooperativa.</li>
+                <li>V. El negocio y la vivienda de la familia se ubican en el distrito de Ate.</li>
+            </ul>
+            <p><strong>Alternativas:</strong></p>
+            <ul class="options-list">
+                <li>a) V, F, V, F, V</li>
+                <li>b) V, V, V, F, V</li>
+                <li>c) F, F, V, V, F</li>
+                <li>d) V, F, F, F, V</li>
+                <li>e) F, V, V, F, F</li>
+            </ul>
+            <details>
+                <summary><span>Ver Respuesta y Justificación</span></summary>
+                <div class="justification">
+                    <span class="correct-answer">Respuesta Correcta: a) (V, F, V, F, V)</span>
+                    <p><strong>Justificación:</strong></p>
+                    <ul class="custom-bullet">
+                        <li><b>I (V) Verdadero:</b> Tienen un crédito personal (Interbank) y créditos de negocio (Mibanco, Caja Tacna).</li>
+                        <li><b>II (F) Falso:</b> La solicitud es para "realizar acabados en su vivienda", no para la exhibidora.</li>
+                        <li><b>III (V) Verdadero:</b> Las referencias comerciales indican que los proveedores de gaseosas y pollo les dan crédito.</li>
+                        <li><b>IV (F) Falso:</b> El análisis indica que tienen una "casa propia" valorizada en S/ 250,000, además de un terreno.</li>
+                        <li><b>V (V) Verdadero:</b> El negocio está en Ate (Asociación Los Ingenieros – Ate) y la vivienda también (Cooperativa Chancas de Andahuaylas, en Ate).</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+    </div>
+
+</body>
+</html>
