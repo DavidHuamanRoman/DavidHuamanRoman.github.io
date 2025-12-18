@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capacitaciones y Series en Video | David Huamán Román</title>
+    <meta
+      name="description"
+      content="Explora las series de capacitación y recursos audiovisuales de David Huamán Román sobre motivación y herramientas digitales para docentes."
+    />
+    <link rel="icon" href="/Assets/DFHR-2.png" type="image/png" />
+
+    <style>
+      /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS */
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+      :root {
+        --background-color: #f8f9fa;
+        --primary-color: #0a2540; /* Azul oscuro */
+        --accent-color: #00c49a; /* Verde/turquesa */
+        --text-color: #333333;
+        --font-heading: "Montserrat", sans-serif;
+        --font-body: "Open Sans", sans-serif;
+      }
+
+      /* 2. RESET Y ESTILOS GLOBALES */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.7;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      h1, h2, h3 {
+        font-family: var(--font-heading);
+        color: var(--primary-color);
+      }
+
+      /* 3. BARRA DE NAVEGACIÓN */
+      .main-header {
+        background-color: #ffffff;
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .main-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      .main-nav ul {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+      }
+
+      .main-nav a {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+      }
+
+      .main-nav a:hover {
+        color: var(--accent-color);
+      }
+
+      .main-nav a.active {
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+
+      /* 4. ESTILOS DE CONTENIDO Y VIDEO */
+      .content-page {
+        padding: 4rem 0;
+      }
+
+      .project-wrapper {
+        max-width: 850px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 3rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .back-link:hover {
+        color: var(--accent-color);
+      }
+
+      .project-wrapper h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .intro-text {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 3rem;
+      }
+
+      /* Estilo para las secciones de Playlist */
+      .playlist-section {
+        margin-bottom: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid #eee;
+      }
+
+      .playlist-section:first-of-type {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      .playlist-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
+
+      .playlist-description {
+        margin-bottom: 1rem;
+      }
+
+      .playlist-syllabus {
+        background-color: #f1f3f5;
+        padding: 1rem 1.5rem;
+        border-radius: 6px;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+        border-left: 4px solid var(--accent-color);
+      }
+
+      /* Contenedor de Video Responsivo (16:9) */
+      .video-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+        height: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* 5. PIE DE PÁGINA */
+      .main-footer {
+        text-align: center;
+        padding: 2rem 0;
+        border-top: 1px solid #e9ecef;
+        background-color: #ffffff;
+      }
+
+      .main-footer p {
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .social-links a {
+        margin: 0 0.75rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--accent-color);
+      }
+
+      /* 6. DISEÑO RESPONSIVO */
+      @media (max-width: 768px) {
+        .logo { font-size: 1.2rem; }
+        .main-nav { display: none; }
+        .project-wrapper { padding: 2rem; }
+        .project-wrapper h1 { font-size: 2rem; }
+        .playlist-section h2 { font-size: 1.4rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <a href="index.html" class="logo">David Huamán Román</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="filosofia-docente.html">Filosofía Docente</a></li>
+            <li><a href="portafolio.html" class="active">Portafolio de Evidencias</a></li>
+            <li><a href="#">Trayectoria Profesional</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="content-page">
+      <div class="container">
+        <div class="project-wrapper">
+          <a href="portafolio.html" class="back-link">‹ Volver al Portafolio</a>
+
+          <h1>Capacitaciones y Series en Video</h1>
+          <p class="intro-text">
+            Explora mis series de capacitación y recursos audiovisuales diseñados para el desarrollo profesional y el dominio de herramientas digitales.
+          </p>
+
+          <article class="playlist-section">
+            <h2>Motivación 360° - David Fischman & Lennia Matos (Resumen Completo)</h2>
+            <div class="playlist-description">
+              <p>Playlist completa del audiolibro que explora las claves científicas de la motivación humana, desde la perspectiva intrínseca y extrínseca, aplicada a la vida y la empresa.</p>
+            </div>
+            <div class="playlist-syllabus">
+              <strong>Temario:</strong> Incluye 9 capítulos: Introducción, Motivadores, Autoeficacia, Estados Emocionales y más.
+            </div>
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/videoseries?list=PLUgdt07eQRdedC1irWVQaD_qB4QzdkCZ3" 
+                title="Motivación 360" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+            </div>
+          </article>
+
+          <article class="playlist-section">
+            <h2>Domina Q10: La Guía Maestra para Docentes</h2>
+            <div class="playlist-description">
+              <p>Guía maestra de 6 pasos diseñada para llevar la enseñanza digital al siguiente nivel, cubriendo todo el ciclo de vida de un curso virtual en la plataforma Q10.</p>
+            </div>
+            <div class="playlist-syllabus">
+              <strong>Temario:</strong> Pasos: Acceso, Iniciación, Estructura, Recursos, Evaluaciones y Cierre de Curso.
+            </div>
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/videoseries?list=PLUgdt07eQRdcVNgefr9cy71Ps5hj33lHk" 
+                title="Domina Q10" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">
+        <p>© 2025 David Huamán Román. Todos los derechos reservados.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/david-huaman-innovacion-educativa/" target="_blank">LinkedIn</a>
+          <a href="mailto:davidfernando.huaman@unmsm.edu.pe">Email</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
