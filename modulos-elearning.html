@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Módulos eLearning y Gamificación | David Huamán Román</title>
+    <meta
+      name="description"
+      content="Portafolio de David Huamán Román: Desarrollo de experiencias de aprendizaje SCORM y estrategias de gamificación aplicadas a la educación corporativa."
+    />
+    <link rel="icon" href="/Assets/DFHR-2.png" type="image/png" />
+
+    <style>
+      /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS */
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+      :root {
+        --background-color: #f8f9fa;
+        --primary-color: #0a2540; /* Azul oscuro */
+        --accent-color: #00c49a; /* Verde/turquesa */
+        --text-color: #333333;
+        --font-heading: "Montserrat", sans-serif;
+        --font-body: "Open Sans", sans-serif;
+      }
+
+      /* 2. RESET Y ESTILOS GLOBALES */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.7;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      h1, h2, h3 {
+        font-family: var(--font-heading);
+        color: var(--primary-color);
+      }
+
+      /* 3. BARRA DE NAVEGACIÓN (IDÉNTICO) */
+      .main-header {
+        background-color: #ffffff;
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .main-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      .main-nav ul {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+      }
+
+      .main-nav a {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+      }
+
+      .main-nav a:hover {
+        color: var(--accent-color);
+      }
+
+      .main-nav a.active {
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+
+      /* 4. ESTILOS DE LA PÁGINA (MAX 800px SEGÚN ESPECIFICACIÓN) */
+      .content-page {
+        padding: 4rem 0;
+      }
+
+      .project-wrapper {
+        max-width: 800px; /* Centrado y limitado según instrucción */
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 3rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .back-link:hover {
+        color: var(--accent-color);
+      }
+
+      .project-wrapper h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+      }
+
+      .project-wrapper hr {
+        border: 0;
+        height: 2px;
+        background-color: var(--accent-color);
+        margin: 1.5rem 0 2.5rem 0;
+        width: 80px;
+      }
+
+      .project-wrapper h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .project-wrapper h3 {
+        font-size: 1.3rem;
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+      }
+
+      .project-wrapper p {
+        margin-bottom: 1.5rem;
+        color: #555;
+      }
+
+      /* Estilo para listas con viñetas personalizadas */
+      .project-wrapper ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 2rem;
+      }
+
+      .project-wrapper li {
+        padding-left: 1.5rem;
+        position: relative;
+        margin-bottom: 0.75rem;
+      }
+
+      .project-wrapper li::before {
+        content: "›";
+        position: absolute;
+        left: 0;
+        top: -2px;
+        color: var(--accent-color);
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      /* Botón de Acción */
+      .action-button-wrapper {
+        text-align: center;
+        margin-top: 3.5rem;
+      }
+
+      .action-btn {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: #ffffff;
+        font-family: var(--font-heading);
+        font-weight: 600;
+        padding: 1.1rem 2.8rem;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 12px rgba(0, 196, 154, 0.2);
+      }
+
+      .action-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 18px rgba(0, 196, 154, 0.4);
+      }
+
+      /* 5. PIE DE PÁGINA */
+      .main-footer {
+        text-align: center;
+        padding: 3rem 0;
+        border-top: 1px solid #e9ecef;
+        background-color: #ffffff;
+      }
+
+      .main-footer p {
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .social-links a {
+        margin: 0 0.75rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--accent-color);
+      }
+
+      /* 6. DISEÑO RESPONSIVO */
+      @media (max-width: 768px) {
+        .logo { font-size: 1.2rem; }
+        .main-nav { display: none; }
+        .project-wrapper { padding: 2rem; margin: 0 1rem; }
+        .project-wrapper h1 { font-size: 2rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <a href="index.html" class="logo">David Huamán Román</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="filosofia-docente.html">Filosofía Docente</a></li>
+            <li><a href="portafolio.html" class="active">Portafolio de Evidencias</a></li>
+            <li><a href="#">Trayectoria Profesional</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="content-page">
+      <div class="container">
+        <div class="project-wrapper">
+          <a href="portafolio.html" class="back-link">‹ Volver al Portafolio</a>
+
+          <h1>Módulos eLearning y Gamificación</h1>
+          <p>
+            Diseño y desarrollo de experiencias de aprendizaje bajo estándares SCORM, 
+            integrando elementos de gamificación para potenciar la retención y la 
+            motivación intrínseca del estudiante.
+          </p>
+          <hr />
+
+          <article>
+            <h2>Evaluación de Créditos con Gamificación</h2>
+
+            <h3>Contexto</h3>
+            <p>
+              Este módulo fue desarrollado para ser integrado en plataformas LMS (como Q10 o Moodle). 
+              Utiliza una narrativa de progresión donde el estudiante asume el rol de un Analista de 
+              Créditos que debe superar desafíos reales para ascender en su carrera virtual.
+            </p>
+
+            
+
+            <h3>Aspectos Técnicos</h3>
+            <ul>
+              <li>Exportación en formato SCORM 1.2 para seguimiento de calificaciones.</li>
+              <li>Diseño visual optimizado para la experiencia del usuario (UX).</li>
+              <li>Feedback inmediato basado en las decisiones del usuario.</li>
+            </ul>
+
+            <h3>Resultados</h3>
+            <p>
+              El uso de este módulo incrementó el tiempo de permanencia en la plataforma y 
+              mejoró los puntajes promedio en las evaluaciones teóricas, gracias al entorno 
+              de práctica seguro y lúdico.
+            </p>
+
+            <div class="action-button-wrapper">
+              <a href="#" class="action-btn" target="_blank" rel="noopener noreferrer">
+                🔗 Explorar Módulo de Ejemplo
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">
+        <p>© 2025 David Huamán Román. Todos los derechos reservados.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/david-huaman-innovacion-educativa/" target="_blank">LinkedIn</a>
+          <a href="mailto:davidfernando.huaman@unmsm.edu.pe">Email</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
