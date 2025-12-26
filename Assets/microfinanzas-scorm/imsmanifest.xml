@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<manifest identifier="MANUAL_MICROFINANZAS_DHR"
+<manifest identifier="SCORM_MICROFINANZAS_DAVID_HUAMAN"
           version="1.2"
           xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
           xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
@@ -10,37 +10,113 @@
             http://www.adlnet.org/xsd/adlcp_rootv1p2
             adlcp_rootv1p2.xsd">
 
-  <!-- METADATOS -->
+  <!-- ===================== -->
+  <!-- METADATOS SCORM       -->
+  <!-- ===================== -->
   <metadata>
     <schema>ADL SCORM</schema>
     <schemaversion>1.2</schemaversion>
   </metadata>
 
-  <!-- ORGANIZACIÓN DEL CURSO -->
+  <!-- ===================== -->
+  <!-- ORGANIZACIÓN DEL LMS  -->
+  <!-- ===================== -->
   <organizations default="ORG-1">
     <organization identifier="ORG-1">
       <title>Gestión Integral de Créditos para Microfinanzas</title>
 
-      <item identifier="ITEM-1"
-            identifierref="RES-1"
-            isvisible="true">
-        <title>Manual Interactivo de Formación</title>
+      <item identifier="ITEM-1" identifierref="RES-1" isvisible="true">
+        <title>Fase 1: Prospección Inteligente</title>
+      </item>
+
+      <item identifier="ITEM-2" identifierref="RES-2" isvisible="true">
+        <title>Fase 2: La Venta Relacional</title>
+      </item>
+
+      <item identifier="ITEM-3" identifierref="RES-3" isvisible="true">
+        <title>Fase 3: Evaluación del Crédito</title>
+      </item>
+
+      <item identifier="ITEM-4" identifierref="RES-4" isvisible="true">
+        <title>Fase 4: Sustentación ante Comité</title>
+      </item>
+
+      <item identifier="ITEM-5" identifierref="RES-5" isvisible="true">
+        <title>Fase 5: Desembolso</title>
+      </item>
+
+      <item identifier="ITEM-6" identifierref="RES-6" isvisible="true">
+        <title>Fase 6: Fidelización y Seguimiento</title>
+      </item>
+
+      <item identifier="ITEM-7" identifierref="RES-7" isvisible="true">
+        <title>Fase 7: Recuperación y Cobranza</title>
       </item>
 
     </organization>
   </organizations>
 
-  <!-- RECURSOS -->
+  <!-- ===================== -->
+  <!-- RECURSOS (SCOs)       -->
+  <!-- ===================== -->
   <resources>
+
     <resource identifier="RES-1"
               type="webcontent"
               adlcp:scormtype="sco"
-              href="index.html">
-
-      <file href="index.html"/>
-      <file href="Assets/favicon.png"/>
-
+              href="fase1/index.html">
+      <file href="fase1/index.html"/>
+      
     </resource>
+
+    <resource identifier="RES-2"
+              type="webcontent"
+              adlcp:scormtype="sco"
+              href="fase2/index.html">
+      <file href="fase2/index.html"/>
+      
+    </resource>
+
+    <resource identifier="RES-3"
+              type="webcontent"
+              adlcp:scormtype="sco"
+              href="fase3/index.html">
+      <file href="fase3/index.html"/>
+      
+    </resource>
+
+    <resource identifier="RES-4"
+              type="webcontent"
+              adlcp:scormtype="sco"
+              href="fase4/index.html">
+      <file href="fase4/index.html"/>
+      
+    </resource>
+
+    <resource identifier="RES-5"
+              type="webcontent"
+              adlcp:scormtype="sco"
+              href="fase5/index.html">
+      <file href="fase5/index.html"/>
+      
+    </resource>
+
+    <resource identifier="RES-6"
+              type="webcontent"
+              adlcp:scormtype="sco"
+              href="fase6/index.html">
+      <file href="fase6/index.html"/>
+      
+    </resource>
+
+    <resource identifier="RES-7"
+              type="webcontent"
+              adlcp:scormtype="sco"
+              href="fase7/index.html">
+      <file href="fase7/index.html"/>
+      
+    </resource>
+
   </resources>
 
 </manifest>

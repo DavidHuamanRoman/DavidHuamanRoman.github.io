@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Fase 2 – La Venta Relacional</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Fase 2 – La Venta Relacional. Manual interactivo de formación para analistas de crédito en microfinanzas." />
+    <link rel="icon" href="../Assets/favicon.png" type="image/png" />
+
+    <style>
+        /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS (Heredado del sitio principal) */
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+        :root {
+            --background-color: #f8f9fa;
+            --primary-color: #0a2540;
+            --accent-color: #00c49a;
+            --text-color: #333333;
+            --light-gray: #e9ecef;
+            --font-heading: "Montserrat", sans-serif;
+            --font-body: "Open Sans", sans-serif;
+        }
+
+        /* RESET Y ESTILOS GLOBALES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+        }
+
+        /* BARRA DE NAVEGACIÓN (opcional en SCO) */
+        .main-header {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .main-header .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color .3s;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .content-page {
+            padding: 4rem 0;
+        }
+
+        .project-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        .container-manual {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color .3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        .project-wrapper h1 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            border-bottom: 4px solid var(--accent-color);
+            padding-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .project-wrapper h2 {
+            font-size: 1.6rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .project-wrapper h3 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        /* Meta box, cards, details, etc. */
+        .meta-box {
+            background-color: #f1f8ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            border-radius: 4px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+        }
+
+        details {
+            margin: 1.5rem 0;
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--light-gray);
+        }
+
+        summary {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .content-box {
+            padding: 1.5rem;
+            border-top: 1px solid var(--light-gray);
+            font-size: 0.95rem;
+            background: #fff;
+        }
+
+        .highlight-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #f1c40f;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Progress area */
+        .progress-container {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: var(--background-color);
+            border-radius: 6px;
+            border-left: 4px solid #adb5bd;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .progress-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #6c757d;
+            user-select: none;
+            width: 100%;
+            gap: 0.5rem;
+        }
+
+        .progress-label input {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-color);
+            cursor: pointer;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            display: block;
+            margin: 10px 0;
+        }
+
+        /* footer styles */
+        .main-footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #e9ecef;
+            background-color: #fff;
+            margin-top: 4rem;
+        }
+
+        .social-links a {
+            margin: 0 0.75rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* responsive */
+        @media (max-width:768px) {
+            .main-nav {
+                display: none;
+            }
+
+            .project-wrapper {
+                padding: 1.5rem;
+            }
+
+            .project-wrapper h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* botón completar */
+        .btn-complete {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            background: var(--accent-color);
+            color: white;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            margin-left: 0.4rem;
+        }
+
+        .btn-complete:focus {
+            outline: 3px solid rgba(0, 196, 154, 0.25);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="content-page">
+        <div class="container-manual">
+            <div class="project-wrapper">
+                                
+                <h1>Fase 2: La Venta Relacional</h1>
+                <p class="intro-text">No vendemos dinero, vendemos soluciones y confianza. En esta fase el analista debe
+                    mostrar actitud, conocimiento del producto y habilidad consultiva.</p>
+
+                <h3>Actitud y Marca Personal</h3>
+                <ul>
+                    <li><strong>Filosofía:</strong> "Hakuna Matata" y "Sonríe Siempre". Una actitud positiva rompe la
+                        barrera de desconfianza del microempresario.</li>
+                    <li><strong>Expertis:</strong> El cliente quiere expertos. Debes conocer el producto y el mercado
+                        para resolver dudas al instante.</li>
+                </ul>
+
+                <h3>Del Marketing Transaccional al Relacional</h3>
+                <p>Buscamos establecer relaciones de confianza a largo plazo, no una sola transacción. El objetivo es
+                    que el cliente sienta que recibe una solución adaptada a su realidad.</p>
+                <p><strong>Acción:</strong> Recopilar datos clave (Monto, Plazo, Destino) y cerrar la venta obteniendo
+                    la documentación inicial.</p>
+
+                <details class="pedagogical">
+                    <summary>Venta Consultiva</summary>
+                    <div class="content-box">
+                        <p>El analista debe asesorar. Si el cliente pide 10,000 para mercadería pero su negocio no tiene
+                            espacio para almacenarla, el analista debe proponer un monto menor o una solución
+                            alternativa. Esto genera autoridad y reduce la tasa de fallas en la cartera.</p>
+                    </div>
+                </details>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Señales de Compra</h4>
+                        <p>Observa la apertura del comerciante a discutir números, la claridad en el uso del crédito y
+                            la disponibilidad de documentación mínima.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Documentación Inicial</h4>
+                        <p>DNI, comprobantes de domicilio y del negocio, información de referidos, y cualquier permiso
+                            necesario según la actividad.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Cerrar con Transparencia</h3>
+                    <p>Explica tasas, cronograma de pagos y sanciones con ejemplos breves. Un cliente bien informado es
+                        más probable que cumpla.</p>
+                </div>
+
+                <!-- COMPLETAR SCO: checkbox visual + botón de acción -->
+                <div class="progress-container" aria-live="polite">
+                    <label class="progress-label" for="mark-read-2">
+                        <input id="mark-read-2" type="checkbox" aria-label="Marcar como leído (visual)">
+                        <span>He leído esta fase</span>
+                    </label>
+
+                    <button class="btn-complete" id="completeBtn" onclick="scorm.complete()"
+                        aria-label="Marcar fase como completada">
+                        Marcar Fase 2 como completada
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- SCRIPT SCORM -->
+    <script>
+        /* SCORM 1.2 – rutina robusta para todos los SCOs */
+        var scorm = {
+            api: null,
+            initialized: false,
+            findAPI: function (win) {
+                try {
+                    while (win) {
+                        if (win.API) return win.API;
+                        if (win.parent === win) break;
+                        win = win.parent;
+                    }
+                } catch (e) {
+                    return null;
+                }
+                return null;
+            },
+
+            init: function () {
+                this.api = this.findAPI(window);
+                if (this.api && !this.initialized) {
+                    try {
+                        this.api.LMSInitialize("");
+                        try {
+                            this.api.LMSSetValue("cmi.core.lesson_status", "incomplete");
+                            this.api.LMSCommit("");
+                        } catch (e) { /* no fatal */ }
+                    } catch (e) { /* no fatal */ }
+                    this.initialized = true;
+                }
+            },
+
+            save: function () {
+                if (this.api && this.initialized) {
+                    try { this.api.LMSCommit(""); } catch (e) { /* no fatal */ }
+                }
+            },
+
+            complete: function (status) {
+                if (this.api && this.initialized) {
+                    try {
+                        var s = (typeof status === "string") ? status : "completed";
+                        this.api.LMSSetValue("cmi.core.lesson_status", s);
+                        this.api.LMSCommit("");
+                        var btn = document.getElementById("completeBtn");
+                        if (btn) { btn.disabled = true; btn.textContent = "Completado ✓"; }
+                        var chk = document.getElementById("mark-read-2");
+                        if (chk) chk.checked = true;
+                    } catch (e) { /* no fatal */ }
+                } else {
+                    var btn = document.getElementById("completeBtn");
+                    if (btn) { btn.disabled = true; btn.textContent = "Marcado (modo local)"; }
+                }
+            },
+
+            finish: function () {
+                if (this.api && this.initialized) {
+                    try { if (this.api.LMSFinish) this.api.LMSFinish(""); } catch (e) { /* no fatal */ }
+                    this.initialized = false;
+                }
+            }
+        };
+
+        window.addEventListener("load", function () { scorm.init(); });
+        window.addEventListener("beforeunload", function () { scorm.save(); });
+    </script>
+</body>
+
+</html>

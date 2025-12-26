@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<xsd:schema targetNamespace="http://www.imsproject.org/xsd/imscp_rootv1p1p2" 
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:imscp="http://www.imsproject.org/xsd/imscp_rootv1p1p2" 
+            elementFormDefault="qualified">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      IMS Content Packaging 1.1.2 XML Schema
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:element name="manifest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="imscp:metadata" minOccurs="0"/>
+        <xsd:element ref="imscp:organizations"/>
+        <xsd:element ref="imscp:resources"/>
+        <xsd:element ref="imscp:manifest" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="identifier" type="xsd:ID" use="required"/>
+      <xsd:attribute name="version" type="xsd:string"/>
+      <xsd:anyAttribute namespace="##other" processContents="strict"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="metadata">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="imscp:schema" minOccurs="0"/>
+        <xsd:element ref="imscp:schemaversion" minOccurs="0"/>
+        <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="schema" type="xsd:string"/>
+  <xsd:element name="schemaversion" type="xsd:string"/>
+
+  <xsd:element name="organizations">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="imscp:organization" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="default" type="xsd:IDREF"/>
+      <xsd:anyAttribute namespace="##other" processContents="strict"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="organization">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="imscp:title" minOccurs="0"/>
+        <xsd:element ref="imscp:item" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="imscp:metadata" minOccurs="0"/>
+        <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="identifier" type="xsd:ID" use="required"/>
+      <xsd:attribute name="structure" type="xsd:string"/>
+      <xsd:anyAttribute namespace="##other" processContents="strict"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="item">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="imscp:title" minOccurs="0"/>
+        <xsd:element ref="imscp:item" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="imscp:metadata" minOccurs="0"/>
+        <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="identifier" type="xsd:ID" use="required"/>
+      <xsd:attribute name="identifierref" type="xsd:string"/>
+      <xsd:attribute name="isvisible" type="xsd:boolean"/>
+      <xsd:attribute name="parameters" type="xsd:string"/>
+      <xsd:anyAttribute namespace="##other" processContents="strict"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="title" type="xsd:string"/>
+
+  <xsd:element name="resources">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="imscp:resource" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:anyAttribute namespace="##other" processContents="strict"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="resource">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="imscp:metadata" minOccurs="0"/>
+        <xsd:element ref="imscp:file" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:element ref="imscp:dependency" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="identifier" type="xsd:ID" use="required"/>
+      <xsd:attribute name="type" type="xsd:string" use="required"/>
+      <xsd:attribute name="href" type="xsd:string"/>
+      <xsd:anyAttribute namespace="##other" processContents="strict"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="file">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="imscp:metadata" minOccurs="0"/>
+        <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="href" type="xsd:string" use="required"/>
+      <xsd:anyAttribute namespace="##other" processContents="strict"/>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="dependency">
+    <xsd:complexType>
+      <xsd:anyAttribute namespace="##other" processContents="strict"/>
+    </xsd:complexType>
+  </xsd:element>
+
+</xsd:schema>

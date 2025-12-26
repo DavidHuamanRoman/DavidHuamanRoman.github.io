@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fase 7 – Recuperación y Cobranza | Créditos Microfinanzas</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+        :root {
+            --background-color: #f8f9fa;
+            --primary-color: #0a2540;
+            --accent-color: #e74c3c;
+            --text-color: #333333;
+            --light-gray: #e9ecef;
+            --font-heading: "Montserrat", sans-serif;
+            --font-body: "Open Sans", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+        }
+
+        .content-page {
+            padding: 4rem 0;
+        }
+
+        .project-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        .highlight-box {
+            background-color: #fdecea;
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .progress-container {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: var(--background-color);
+            border-radius: 6px;
+            border-left: 4px solid #adb5bd;
+        }
+
+        .progress-label {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            color: #6c757d;
+        }
+
+        .progress-label input {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-color);
+        }
+
+        .progress-label input:checked+span {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="content-page">
+        <div class="project-wrapper">
+
+            <h1>Fase 7: Recuperación y Cobranza</h1>
+
+            <p>
+                La cobranza no es persecución.
+                Es una <strong>gestión profesional del riesgo</strong>
+                basada en información, oportunidad y trato humano.
+            </p>
+
+            <div class="highlight-box">
+                <ul>
+                    <li><strong>Cobranza temprana:</strong> prevención antes del atraso crítico.</li>
+                    <li><strong>Segmentación:</strong> no todos los morosos son iguales.</li>
+                    <li><strong>Reprogramación:</strong> solo cuando el flujo lo justifica.</li>
+                </ul>
+            </div>
+
+            <p>
+                Una mala cobranza destruye valor.
+                Una buena cobranza recupera capital y preserva relaciones.
+            </p>
+
+            <div class="progress-container">
+                <label class="progress-label">
+                    <input type="checkbox" onclick="scorm.complete()">
+                    <span>Marcar Fase 7 como completada</span>
+                </label>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- SCRIPT SCORM -->
+    <script>
+        /* SCORM 1.2 – rutina robusta para todos los SCOs */
+        var scorm = {
+            api: null,
+            initialized: false,
+            findAPI: function (win) {
+                try {
+                    while (win) {
+                        if (win.API) return win.API;
+                        if (win.parent === win) break; // evita loop infinito
+                        win = win.parent;
+                    }
+                } catch (e) {
+                    return null;
+                }
+                return null;
+            },
+
+            init: function () {
+                this.api = this.findAPI(window);
+                if (this.api && !this.initialized) {
+                    try {
+                        this.api.LMSInitialize("");
+                        // Marcar intento como "incomplete" (buena práctica)
+                        try {
+                            this.api.LMSSetValue("cmi.core.lesson_status", "incomplete");
+                            this.api.LMSCommit("");
+                        } catch (e) { /* no fatal */ }
+                    } catch (e) { /* no fatal */ }
+                    this.initialized = true;
+                }
+            },
+
+            save: function () {
+                // Commit ligero para guardar datos sin marcar completado
+                if (this.api && this.initialized) {
+                    try { this.api.LMSCommit(""); } catch (e) { /* no fatal */ }
+                }
+            },
+
+            complete: function (status) {
+                // status opcional: 'completed' (por defecto) o 'passed'/'failed' si tienes score
+                if (this.api && this.initialized) {
+                    try {
+                        var s = (typeof status === "string") ? status : "completed";
+                        this.api.LMSSetValue("cmi.core.lesson_status", s);
+                        this.api.LMSCommit("");
+                        // opción: deshabilitar el botón tras completar (feedback UI)
+                        var btn = document.getElementById("completeBtn");
+                        if (btn) {
+                            btn.disabled = true;
+                            btn.textContent = "Completado ✓";
+                        }
+                        var chk = document.getElementById("mark-read");
+                        if (chk) chk.checked = true;
+                    } catch (e) { /* no fatal */ }
+                } else {
+                    // Si NO hay API (por ejemplo vista local), dar feedback visual
+                    var btn = document.getElementById("completeBtn");
+                    if (btn) {
+                        btn.disabled = true;
+                        btn.textContent = "Marcado (modo local)";
+                    }
+                }
+            },
+
+            finish: function () {
+                // Opcional: cerrar la sesión SCORM (no siempre necesario)
+                if (this.api && this.initialized) {
+                    try { if (this.api.LMSFinish) this.api.LMSFinish(""); } catch (e) { /* no fatal */ }
+                    this.initialized = false;
+                }
+            }
+        };
+
+        /* Inicializar al cargar */
+        window.addEventListener("load", function () { scorm.init(); });
+
+        /* Guardado seguro al salir (no marca completado) */
+        window.addEventListener("beforeunload", function () { scorm.save(); });
+
+        /* Nota: No confiar en beforeunload para marcar completado, usar botón */
+    </script>
+
+</body>
+
+</html>

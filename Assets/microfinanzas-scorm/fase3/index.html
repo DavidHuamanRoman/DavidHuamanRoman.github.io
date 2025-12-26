@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Fase 3 – Evaluación del Crédito</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Fase 3 – Evaluación del Crédito. Análisis técnico y cualitativo del solicitante." />
+    <link rel="icon" href="../Assets/favicon.png" type="image/png" />
+
+    <style>
+        /* ===== ESTILOS BASE (idénticos a fases anteriores) ===== */
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+        :root {
+            --background-color: #f8f9fa;
+            --primary-color: #0a2540;
+            --accent-color: #00c49a;
+            --text-color: #333333;
+            --light-gray: #e9ecef;
+            --font-heading: "Montserrat", sans-serif;
+            --font-body: "Open Sans", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+        }
+
+        .content-page {
+            padding: 4rem 0;
+        }
+
+        .container-manual {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .project-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 4px solid var(--accent-color);
+            padding-bottom: 1rem;
+            display: inline-block;
+        }
+
+        h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #f1c40f;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            border: 1px solid var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        details {
+            margin: 1.5rem 0;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+        }
+
+        summary {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: var(--font-heading);
+        }
+
+        .content-box {
+            padding: 1.5rem;
+            border-top: 1px solid var(--light-gray);
+            background-color: #fff;
+        }
+
+        .progress-container {
+            margin-top: 2.5rem;
+            padding: 1rem;
+            background-color: var(--background-color);
+            border-left: 4px solid #adb5bd;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .progress-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .progress-label input {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-color);
+        }
+
+        .btn-complete {
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            background: var(--accent-color);
+            color: white;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-complete:disabled {
+            background: #6c757d;
+            cursor: default;
+        }
+
+        @media (max-width: 768px) {
+            .project-wrapper {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="content-page">
+        <div class="container-manual">
+            <div class="project-wrapper">
+
+                <h1>Fase 3: Evaluación del Crédito</h1>
+
+                <p class="intro-text">
+                    En esta fase se determina si el cliente tiene la <strong>capacidad real</strong>
+                    y la <strong>voluntad</strong> de cumplir con el crédito solicitado.
+                    La evaluación combina análisis numérico, verificación en campo y criterio profesional.
+                </p>
+
+                <h3>Componentes Clave de la Evaluación</h3>
+                <ul>
+                    <li><strong>Capacidad de Pago:</strong> Flujo de caja del negocio y del hogar.</li>
+                    <li><strong>Historial Crediticio:</strong> Reporte en centrales de riesgo.</li>
+                    <li><strong>Estabilidad:</strong> Antigüedad del negocio y del domicilio.</li>
+                    <li><strong>Garantías:</strong> Reales o personales, según el producto.</li>
+                </ul>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h4>Análisis de Ingresos</h4>
+                        <p>Se validan ventas reales, frecuencia, estacionalidad y consistencia con el rubro.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Análisis de Gastos</h4>
+                        <p>Incluye gastos familiares, del negocio y compromisos financieros vigentes.</p>
+                    </div>
+                </div>
+
+                <details>
+                    <summary>Errores Frecuentes en la Evaluación</summary>
+                    <div class="content-box">
+                        <ul>
+                            <li>Sobreestimar ingresos declarados.</li>
+                            <li>No validar información en campo.</li>
+                            <li>Ignorar deudas informales.</li>
+                            <li>Confiar solo en el sistema sin criterio.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <div class="highlight-box">
+                    <strong>Regla de Oro:</strong>
+                    Un crédito mal evaluado no se recupera con una buena cobranza.
+                </div>
+
+                <!-- COMPLETAR SCO -->
+                <div class="progress-container">
+                    <label class="progress-label">
+                        <input type="checkbox" id="mark-read-3">
+                        <span>He revisado esta fase</span>
+                    </label>
+
+                    <button class="btn-complete" id="completeBtn" onclick="scorm.complete()">
+                        Marcar Fase 3 como completada
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- SCRIPT SCORM -->
+    <script>
+        var scorm = {
+            api: null,
+            initialized: false,
+
+            findAPI: function (win) {
+                try {
+                    while (win) {
+                        if (win.API) return win.API;
+                        if (win.parent === win) break;
+                        win = win.parent;
+                    }
+                } catch (e) { return null; }
+                return null;
+            },
+
+            init: function () {
+                this.api = this.findAPI(window);
+                if (this.api && !this.initialized) {
+                    try {
+                        this.api.LMSInitialize("");
+                        this.api.LMSSetValue("cmi.core.lesson_status", "incomplete");
+                        this.api.LMSCommit("");
+                    } catch (e) { }
+                    this.initialized = true;
+                }
+            },
+
+            save: function () {
+                if (this.api && this.initialized) {
+                    try { this.api.LMSCommit(""); } catch (e) { }
+                }
+            },
+
+            complete: function () {
+                if (this.api && this.initialized) {
+                    try {
+                        this.api.LMSSetValue("cmi.core.lesson_status", "completed");
+                        this.api.LMSCommit("");
+                    } catch (e) { }
+                }
+
+                document.getElementById("completeBtn").disabled = true;
+                document.getElementById("completeBtn").textContent = "Completado ✓";
+                document.getElementById("mark-read-3").checked = true;
+            }
+        };
+
+        window.addEventListener("load", function () { scorm.init(); });
+        window.addEventListener("beforeunload", function () { scorm.save(); });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Fase 1 – Prospección Inteligente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Fase 1 – Prospección Inteligente. Manual interactivo de formación para analistas de crédito en microfinanzas." />
+
+    <!-- ICONO: usar ruta relativa (IMPORTANTE para SCORM ZIP) -->
+    <link rel="icon" href="../Assets/favicon.png" type="image/png" />
+
+    <!-- ESTILOS: copiados tal cual de tu HTML original -->
+    <style>
+        /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS (Heredado del sitio principal) */
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+        :root {
+            --background-color: #f8f9fa;
+            --primary-color: #0a2540;
+            /* Azul oscuro */
+            --accent-color: #00c49a;
+            /* Verde/turquesa */
+            --text-color: #333333;
+            --light-gray: #e9ecef;
+            --font-heading: "Montserrat", sans-serif;
+            --font-body: "Open Sans", sans-serif;
+        }
+
+        /* 2. RESET Y ESTILOS GLOBALES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+        }
+
+        /* 3. BARRA DE NAVEGACIÓN (Consistente) */
+        .main-header {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .main-header .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* 4. CONTENEDOR PRINCIPAL DEL MANUAL */
+        .content-page {
+            padding: 4rem 0;
+        }
+
+        .project-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        .container-manual {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Títulos del Manual */
+        .project-wrapper h1 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            border-bottom: 4px solid var(--accent-color);
+            padding-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .project-wrapper h2 {
+            font-size: 1.6rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .project-wrapper h3 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        /* 5. ESTILOS ESPECÍFICOS DEL MANUAL (Adaptados al tema) */
+
+        /* Meta Box */
+        .meta-box {
+            background-color: #f1f8ff;
+            /* Azul muy pálido */
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            border-radius: 4px;
+        }
+
+        .meta-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-item strong {
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-right: 0.5rem;
+        }
+
+        /* Tooltips */
+        .term {
+            border-bottom: 2px dotted var(--accent-color);
+            cursor: help;
+            position: relative;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .term:hover {
+            color: var(--accent-color);
+        }
+
+        .term::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            width: 220px;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+            transition: opacity 0.3s;
+            z-index: 100;
+            font-weight: 400;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .term:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Cards Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-color);
+        }
+
+        .card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Detalles Colapsables (Pedagógicos/Técnicos) */
+        details {
+            margin: 1.5rem 0;
+            background: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        summary {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.2s;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .content-box {
+            padding: 1.5rem;
+            border-top: 1px solid var(--light-gray);
+            font-size: 0.95rem;
+            background-color: #fff;
+        }
+
+        /* Estilo Pedagógico (Verde acento) */
+        .pedagogical {
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .pedagogical summary {
+            background-color: #f0fdfa;
+            color: #0f5132;
+        }
+
+        .pedagogical summary::before {
+            content: '🎓 ';
+            margin-right: 10px;
+        }
+
+        /* Estilo Técnico (Azul Primario) */
+        .technical {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .technical summary {
+            background-color: #f0f4f8;
+            color: var(--primary-color);
+        }
+
+        .technical summary::before {
+            content: '🚀 ';
+            margin-right: 10px;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #f1c40f;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Checkboxes de Progreso */
+        .progress-container {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: var(--background-color);
+            border-radius: 6px;
+            border-left: 4px solid #adb5bd;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .progress-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #6c757d;
+            user-select: none;
+            width: 100%;
+            gap: 0.5rem;
+        }
+
+        .progress-label input {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-color);
+            cursor: pointer;
+        }
+
+        .progress-label input:checked+span {
+            color: var(--accent-color);
+        }
+
+        .progress-label span::after {
+            content: " (Marcar como leído)";
+            font-weight: normal;
+            font-size: 0.85rem;
+            margin-left: 5px;
+            opacity: 0.7;
+        }
+
+        .progress-label input:checked+span::after {
+            content: " ✓ Completado";
+            font-weight: 700;
+            opacity: 1;
+        }
+
+        ul,
+        ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            display: block;
+            margin: 10px 0;
+        }
+
+        /* 6. PIE DE PÁGINA (Consistente) */
+        .main-footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #e9ecef;
+            background-color: #ffffff;
+            margin-top: 4rem;
+        }
+
+        .main-footer p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .social-links a {
+            margin: 0 0.75rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+            }
+
+            .project-wrapper {
+                padding: 1.5rem;
+            }
+
+            .project-wrapper h1 {
+                font-size: 1.8rem;
+            }
+
+            .term::after {
+                width: 180px;
+                left: 0;
+                transform: translateX(0);
+            }
+        }
+
+        /* Botón principal estilo simple */
+        .btn-complete {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            background: var(--accent-color);
+            color: white;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            margin-left: 0.4rem;
+        }
+
+        .btn-complete:focus {
+            outline: 3px solid rgba(0, 196, 154, 0.25);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="content-page">
+        <div class="container-manual">
+            <div class="project-wrapper">
+
+                <h1>Fase 1: Prospección Inteligente</h1>
+
+                <p>
+                    El objetivo no es solo encontrar clientes, sino encontrar
+                    <strong>sujetos de crédito</strong> válidos para maximizar el tiempo
+                    y evitar el desperdicio de recursos.
+                </p>
+
+                <span class="quote">
+                    Principio de Pareto: 80% resultados, 20% esfuerzo.
+                </span>
+
+                <h3>Estrategias de Búsqueda</h3>
+                <ul>
+                    <li><strong>Barrido / Casa por Casa:</strong> Zonas geográficas definidas.</li>
+                    <li><strong>A Golpe de Vista:</strong> Observación de movimiento y stock.</li>
+                    <li><strong>Referidos:</strong> Uso estratégico de la cartera activa.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>El Filtro de Oro</h3>
+                    <p>
+                        La prospección termina con la consulta en
+                        <strong>Central de Riesgos</strong>.
+                    </p>
+                    <p>
+                        <strong>Requisitos base:</strong> Edad 20–65 años, negocio ≥ 6 meses.
+                    </p>
+                </div>
+
+                <details class="technical">
+                    <summary>Interpretación del Semáforo</summary>
+                    <div class="content-box">
+                        <ul>
+                            <li><strong>Carga financiera</strong></li>
+                            <li><strong>Tendencia de deuda</strong></li>
+                        </ul>
+                        <p>
+                            Cliente con muchas entidades = sobreendeudamiento.
+                        </p>
+                    </div>
+                </details>
+
+                <!-- COMPLETAR SCO: checkbox visual + botón de acción (accesible) -->
+                <div class="progress-container" aria-live="polite">
+                    <label class="progress-label" for="mark-read">
+                        <input id="mark-read" type="checkbox" aria-label="Marcar como leído (visual)">
+                        <span>He leído esta fase</span>
+                    </label>
+
+                    <button class="btn-complete" id="completeBtn" onclick="scorm.complete()"
+                        aria-label="Marcar fase como completada">
+                        Marcar Fase 1 como completada
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- SCRIPT SCORM -->
+    <script>
+        /* SCORM 1.2 – rutina robusta para todos los SCOs */
+        var scorm = {
+            api: null,
+            initialized: false,
+            findAPI: function (win) {
+                try {
+                    while (win) {
+                        if (win.API) return win.API;
+                        if (win.parent === win) break; // evita loop infinito
+                        win = win.parent;
+                    }
+                } catch (e) {
+                    return null;
+                }
+                return null;
+            },
+
+            init: function () {
+                this.api = this.findAPI(window);
+                if (this.api && !this.initialized) {
+                    try {
+                        this.api.LMSInitialize("");
+                        // Marcar intento como "incomplete" (buena práctica)
+                        try {
+                            this.api.LMSSetValue("cmi.core.lesson_status", "incomplete");
+                            this.api.LMSCommit("");
+                        } catch (e) { /* no fatal */ }
+                    } catch (e) { /* no fatal */ }
+                    this.initialized = true;
+                }
+            },
+
+            save: function () {
+                // Commit ligero para guardar datos sin marcar completado
+                if (this.api && this.initialized) {
+                    try { this.api.LMSCommit(""); } catch (e) { /* no fatal */ }
+                }
+            },
+
+            complete: function (status) {
+                // status opcional: 'completed' (por defecto) o 'passed'/'failed' si tienes score
+                if (this.api && this.initialized) {
+                    try {
+                        var s = (typeof status === "string") ? status : "completed";
+                        this.api.LMSSetValue("cmi.core.lesson_status", s);
+                        this.api.LMSCommit("");
+                        // opción: deshabilitar el botón tras completar (feedback UI)
+                        var btn = document.getElementById("completeBtn");
+                        if (btn) {
+                            btn.disabled = true;
+                            btn.textContent = "Completado ✓";
+                        }
+                        var chk = document.getElementById("mark-read");
+                        if (chk) chk.checked = true;
+                    } catch (e) { /* no fatal */ }
+                } else {
+                    // Si NO hay API (por ejemplo vista local), dar feedback visual
+                    var btn = document.getElementById("completeBtn");
+                    if (btn) {
+                        btn.disabled = true;
+                        btn.textContent = "Marcado (modo local)";
+                    }
+                }
+            },
+
+            finish: function () {
+                // Opcional: cerrar la sesión SCORM (no siempre necesario)
+                if (this.api && this.initialized) {
+                    try { if (this.api.LMSFinish) this.api.LMSFinish(""); } catch (e) { /* no fatal */ }
+                    this.initialized = false;
+                }
+            }
+        };
+
+        /* Inicializar al cargar */
+        window.addEventListener("load", function () { scorm.init(); });
+
+        /* Guardado seguro al salir (no marca completado) */
+        window.addEventListener("beforeunload", function () { scorm.save(); });
+
+        /* Nota: No confiar en beforeunload para marcar completado, usar botón */
+    </script>
+</body>
+
+</html>
