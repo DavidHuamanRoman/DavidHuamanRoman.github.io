@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David Huamán Román | Docente y Capacitador</title>
-    <meta name="description" content="Portafolio profesional de David Huamán Román, docente y capacitador especializado en Microfinanzas.">
+    <meta name="description"
+        content="Portafolio profesional de David Huamán Román, docente y capacitador especializado en Microfinanzas.">
     <link rel="icon" href="/Assets/favicon.png" type="image/png">
     <style>
         /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS */
@@ -12,8 +14,10 @@
 
         :root {
             --background-color: #F8F9FA;
-            --primary-color: #0A2540; /* Azul oscuro */
-            --accent-color: #00C49A;  /* Verde/turquesa */
+            --primary-color: #0A2540;
+            /* Azul oscuro */
+            --accent-color: #00C49A;
+            /* Verde/turquesa */
             --text-color: #333333;
             --font-heading: 'Montserrat', sans-serif;
             --font-body: 'Open Sans', sans-serif;
@@ -43,7 +47,9 @@
             padding: 0 2rem;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             font-family: var(--font-heading);
             color: var(--primary-color);
         }
@@ -55,7 +61,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .main-header .container {
@@ -75,7 +81,8 @@
         .main-nav ul {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 1.2rem;
+            align-items: center;
         }
 
         .main-nav a {
@@ -97,7 +104,7 @@
             align-items: center;
             padding: 4rem 0;
         }
-        
+
         .hero .container {
             display: flex;
             align-items: center;
@@ -117,7 +124,7 @@
             height: auto;
             border-radius: 50%;
             border: 5px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .hero-content {
@@ -183,7 +190,26 @@
         .social-links a:hover {
             color: var(--accent-color);
         }
-        
+
+        .cv-menu-link {
+            border: 2px solid var(--accent-color);
+            padding: 6px 15px;
+            border-radius: 5px;
+            color: var(--accent-color) !important;
+            transition: all 0.3s ease;
+        }
+
+        .cv-menu-link:hover {
+            background-color: var(--accent-color);
+            color: white !important;
+        }
+
+        /* Asegura que el nombre (logo) no se aplaste */
+        .logo {
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+
         /* 6. DISEÑO RESPONSIVO */
         @media (max-width: 768px) {
             .logo {
@@ -191,7 +217,8 @@
             }
 
             .main-nav {
-                display: none; /* En un proyecto real, aquí se implementaría un menú hamburguesa con JS */
+                display: none;
+                /* En un proyecto real, aquí se implementaría un menú hamburguesa con JS */
             }
 
             .hero .container {
@@ -206,24 +233,122 @@
             .hero-content h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero-content .subtitle {
                 font-size: 1.1rem;
             }
         }
-        
+
         @media (max-width: 480px) {
             .container {
                 padding: 0 1rem;
             }
-            
+
             .hero-content h1 {
                 font-size: 2rem;
             }
         }
 
+        /* 7. SECCIÓN TRAYECTORIA */
+        .trajectory {
+            padding: 5rem 0;
+            background-color: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .exp-card {
+            background: var(--background-color);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .exp-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .exp-card .date {
+            display: block;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        /* 8. SECCIÓN CONTACTO */
+        .contact-cta {
+            padding: 5rem 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-cta h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-color);
+        }
+
+        /* Ajuste para móviles */
+        @media (max-width: 768px) {
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cta-button-secondary {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
     </style>
 </head>
+
 <body>
 
     <header class="main-header">
@@ -232,10 +357,11 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="filosofia-docente.html">Filosofía Docente</a></li>
-                    <li><a href="portafolio.html">Portafolio de Evidencias</a></li>
-                    <li><a href="#trayectoria">Trayectoria Profesional</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="filosofia-docente.html">Filosofía</a></li>
+                    <li><a href="portafolio.html">Portafolio</a></li>
+                    <li><a href="index.html#trayectoria">Trayectoria</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="/Assets/CV-David-Fernando-Huaman-Roman.pdf" target="_blank" class="cv-menu-link">Descargar CV</a></li>
                 </ul>
             </nav>
         </div>
@@ -250,22 +376,85 @@
                 <h1>David Huamán Román</h1>
                 <p class="subtitle">Instructor en Tecnología Crediticia aplicada a las Microfinanzas</p>
                 <p class="value-proposition">
-                    Soy un docente que conecta la industria financiera con el aula. Fusiono una década de experiencia en docencia superior con mi trayectoria en el sector bancario para transformar la educación en Tecnología Crediticia. Mi enfoque es simple: usar la tecnología y la simulación práctica para que mis estudiantes no solo aprendan la teoría, sino que desarrollen las competencias exactas que el mercado financiero demanda hoy.
+                    Soy un docente que conecta la industria financiera con el aula. Fusiono una década de experiencia en
+                    docencia superior con mi trayectoria en el sector bancario para transformar la educación en
+                    Tecnología Crediticia. Mi enfoque es simple: usar la tecnología y la simulación práctica para que
+                    mis estudiantes no solo aprendan la teoría, sino que desarrollen las competencias exactas que el
+                    mercado financiero demanda hoy.
                 </p>
-                <a href="portafolio.html" class="cta-button">Explorar mi Trabajo</a>
+                <div class="cta-container">
+                    <a href="portafolio.html" class="cta-button">Explorar mi Trabajo</a>
+                    <a href="/Assets/CV-David-Fernando-Huaman-Roman.pdf" target="_blank" class="cta-button-secondary">Descargar CV
+                        (PDF)</a>
+                </div>
             </div>
         </div>
     </main>
 
-    <footer class="main-footer" id="contacto">
+    <section class="trajectory" id="trayectoria">
+        <div class="container">
+            <h2 class="section-title">Trayectoria Profesional</h2>
+            <div class="experience-grid">
+
+                <div class="exp-card">
+                    <span class="date">15 años de experiencia</span>
+                    <h3>Docente de Educación Superior</h3>
+                    <p>Especialista en Administración de Empresas y Microfinanzas. Enfocado en el uso de metodologías
+                        activas (Aula Invertida) y herramientas EdTech para la formación de futuros profesionales
+                        bancarios.</p>
+                </div>
+
+                <div class="exp-card">
+                    <span class="date">Más de 10 años</span>
+                    <h3>Experiencia en el Sistema Financiero</h3>
+                    <p>Ex Supervisor de Calidad de Créditos en Caja Arequipa. Amplio dominio de la tecnología
+                        crediticia, evaluación de riesgos y gestión operativa en instituciones de microfinanzas.</p>
+                </div>
+
+                <div class="exp-card">
+                    <span class="date">Actualidad</span>
+                    <h3>Maestría en Educación y Business Intelligence</h3>
+                    <p>Especializándome en e-learning y análisis de datos aplicado a las finanzas para cerrar la brecha
+                        entre la analítica de negocios y la enseñanza técnica.</p>
+                </div>
+
+                <div class="exp-card">
+                    <span class="date">Proyectos Especiales</span>
+                    <h3>Formador en Competencias Digitales</h3>
+                    <p>Capacitador de docentes en el uso de plataformas como Q10 y herramientas de IA aplicadas a la
+                        educación, transformando la gestión académica tradicional en digital.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-cta" id="contacto">
+        <div class="container">
+            <h2>¿Listo para innovar en tu institución o empresa?</h2>
+            <p>Estoy disponible para capacitaciones, diseño de cursos e-learning y consultoría en microfinanzas.</p>
+
+            <div class="contact-info">
+                <a href="mailto:davidfernando.huaman@unmsm.edu.pe" class="contact-item">
+                    <span>📧 davidfernando.huaman@unmsm.edu.pe</span>
+                </a>
+                <a href="https://www.linkedin.com/in/david-huaman-innovacion-educativa/" target="_blank"
+                    class="contact-item">
+                    <span>🔗 LinkedIn Profesional</span>
+                </a>
+                <a href="https://www.davidhuamanroman.com" class="contact-item">
+                    <span>🌐 www.davidhuamanroman.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
         <div class="container">
             <p>© 2025 David Huamán Román. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/david-huaman-innovacion-educativa/" target="_blank">LinkedIn</a>
-                <a href="mailto:davidfernando.huaman@unmsm.edu.pe">Email</a>
-            </div>
         </div>
     </footer>
 
 </body>
+
 </html>
