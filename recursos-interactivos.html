@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recursos Interactivos | David Huamán Román</title>
-    <meta name="description" content="Proyectos de recursos didácticos interactivos, incluyendo gamificación en Genially y casos prácticos en HTML.">
+    <meta name="description"
+        content="Proyectos de recursos didácticos interactivos, incluyendo gamificación en Genially y casos prácticos en HTML.">
     <link rel="icon" href="/Assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="Assets/css/global.css">
+    <link rel="stylesheet" href="Assets/css/detalle-proyectos.css">
     <style>
         /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS (IDÉNTICO A PÁGINAS ANTERIORES) */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap');
 
         :root {
             --background-color: #F8F9FA;
-            --primary-color: #0A2540; /* Azul oscuro */
-            --accent-color: #00C49A;  /* Verde/turquesa */
+            --primary-color: #0A2540;
+            /* Azul oscuro */
+            --accent-color: #00C49A;
+            /* Verde/turquesa */
             --text-color: #333333;
             --font-heading: 'Montserrat', sans-serif;
             --font-body: 'Open Sans', sans-serif;
@@ -43,7 +49,9 @@
             padding: 0 2rem;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             font-family: var(--font-heading);
             color: var(--primary-color);
         }
@@ -55,7 +63,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .main-header .container {
@@ -89,7 +97,7 @@
         .main-nav a:hover {
             color: var(--accent-color);
         }
-        
+
         .main-nav a.active {
             color: var(--accent-color);
             font-weight: 700;
@@ -106,7 +114,7 @@
             background-color: #FFFFFF;
             padding: 3rem;
             border-radius: 8px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
         }
 
         .back-link {
@@ -117,7 +125,7 @@
             font-weight: 600;
             transition: color 0.3s ease;
         }
-        
+
         .back-link:hover {
             color: var(--accent-color);
         }
@@ -134,7 +142,7 @@
             margin: 1rem 0 2rem 0;
             width: 80px;
         }
-        
+
         .project-wrapper h2 {
             font-size: 1.75rem;
             margin-bottom: 1.5rem;
@@ -149,7 +157,7 @@
         .project-wrapper p {
             margin-bottom: 1rem;
         }
-        
+
         /* Estilo para el separador entre proyectos */
         .project-divider {
             height: 1px;
@@ -157,7 +165,7 @@
             width: 100%;
             margin: 4rem 0;
         }
-        
+
         .action-button-wrapper {
             text-align: center;
             margin-top: 3rem;
@@ -204,34 +212,62 @@
         .social-links a:hover {
             color: var(--accent-color);
         }
-        
+
         /* 6. DISEÑO RESPONSIVO */
         @media (max-width: 768px) {
-            .logo { font-size: 1.2rem; }
-            .main-nav { display: none; }
-            .project-wrapper { padding: 2rem; }
-            .project-wrapper h1 { font-size: 2rem; }
-            .project-wrapper h2 { font-size: 1.5rem; }
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .project-wrapper {
+                padding: 2rem;
+            }
+
+            .project-wrapper h1 {
+                font-size: 2rem;
+            }
+
+            .project-wrapper h2 {
+                font-size: 1.5rem;
+            }
         }
-        
+
         @media (max-width: 480px) {
-            .container { padding: 0 1rem; }
-            .project-wrapper { padding: 1.5rem; }
+            .container {
+                padding: 0 1rem;
+            }
+
+            .project-wrapper {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header class="main-header">
         <div class="container">
             <a href="index.html" class="logo">David Huamán Román</a>
             <nav class="main-nav">
-                <ul>
+                <!-- <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="filosofia-docente.html">Filosofía Docente</a></li>
                     <li><a href="portafolio.html" class="active">Portafolio de Evidencias</a></li>
                     <li><a href="#">Trayectoria Profesional</a></li>
                     <li><a href="#">Contacto</a></li>
+                </ul> -->
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="filosofia-docente.html">Filosofía Docente</a></li>
+                    <li><a href="portafolio.html" class="active">Portafolio de Evidencias</a></li>
+                    <li><a href="index.html#trayectoria">Trayectoria Profesional</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="/cv" target="_blank" class="cv-menu-link">Visualizar CV</a></li>
                 </ul>
             </nav>
         </div>
@@ -241,24 +277,30 @@
         <div class="container">
             <div class="project-wrapper">
                 <a href="portafolio.html" class="back-link">‹ Volver al Portafolio</a>
-                
+
                 <h1>Recursos Didácticos Interactivos</h1>
                 <hr>
 
                 <article>
                     <h2>Gamificación: El Proceso de Tomar Referencias</h2>
-                    
+
                     <h3>Contexto</h3>
-                    <p>Este recurso fue desarrollado como una actividad de gamificación para reforzar el proceso de toma de referencias comerciales, vecinales y financieras. El objetivo es que los estudiantes aprendan a hacer las preguntas correctas de una manera lúdica y competitiva.</p>
+                    <p>Este recurso fue desarrollado como una actividad de gamificación para reforzar el proceso de toma
+                        de referencias comerciales, vecinales y financieras. El objetivo es que los estudiantes aprendan
+                        a hacer las preguntas correctas de una manera lúdica y competitiva.</p>
 
                     <h3>Mi Contribución</h3>
-                    <p>Diseñé la lógica del juego, redacté las preguntas y los escenarios, y construí la experiencia interactiva completa utilizando la plataforma Genially, enfocándome en un sistema de puntos para avanzar de nivel.</p>
+                    <p>Diseñé la lógica del juego, redacté las preguntas y los escenarios, y construí la experiencia
+                        interactiva completa utilizando la plataforma Genially, enfocándome en un sistema de puntos para
+                        avanzar de nivel.</p>
 
                     <h3>Impacto</h3>
-                    <p>La actividad incrementó notablemente la participación y retención del proceso. Los estudiantes mostraron mayor confianza al aplicar la técnica en simulaciones posteriores.</p>
+                    <p>La actividad incrementó notablemente la participación y retención del proceso. Los estudiantes
+                        mostraron mayor confianza al aplicar la técnica en simulaciones posteriores.</p>
 
                     <div class="action-button-wrapper">
-                        <a href="https://view.genially.com/68f553f4866b2699f82ef1f7/interactive-content-la-busqueda-del-sujeto-de-credito" class="action-btn" target="_blank" rel="noopener noreferrer">
+                        <a href="https://view.genially.com/68f553f4866b2699f82ef1f7/interactive-content-la-busqueda-del-sujeto-de-credito"
+                            class="action-btn" target="_blank" rel="noopener noreferrer">
                             ▶️ Jugar Ahora (en Genially)
                         </a>
                     </div>
@@ -270,16 +312,22 @@
                     <h2>Caso Práctico: Evaluación Cualitativa de una MyPE</h2>
 
                     <h3>Contexto</h3>
-                    <p>Este caso práctico en formato web fue creado para que los estudiantes apliquen los conceptos de evaluación cualitativa de un negocio. El recurso presenta la historia de un emprendedor y guía al estudiante a través del análisis.</p>
-                    
+                    <p>Este caso práctico en formato web fue creado para que los estudiantes apliquen los conceptos de
+                        evaluación cualitativa de un negocio. El recurso presenta la historia de un emprendedor y guía
+                        al estudiante a través del análisis.</p>
+
                     <h3>Mi Contribución</h3>
-                    <p>Estructuré el caso, redacté el contenido y lo desarrollé en HTML con CSS interno para asegurar su accesibilidad y facilidad de uso sin necesidad de plataformas externas. El diseño se centró en la legibilidad y la claridad.</p>
+                    <p>Estructuré el caso, redacté el contenido y lo desarrollé en HTML con CSS interno para asegurar su
+                        accesibilidad y facilidad de uso sin necesidad de plataformas externas. El diseño se centró en
+                        la legibilidad y la claridad.</p>
 
                     <h3>Impacto</h3>
-                    <p>Este recurso se convirtió en una herramienta de autoaprendizaje muy valorada, permitiendo a los estudiantes trabajar a su propio ritmo y aplicar la teoría de forma estructurada.</p>
-                    
+                    <p>Este recurso se convirtió en una herramienta de autoaprendizaje muy valorada, permitiendo a los
+                        estudiantes trabajar a su propio ritmo y aplicar la teoría de forma estructurada.</p>
+
                     <div class="action-button-wrapper">
-                        <a href="cuestionario-cualitativo.html" class="action-btn" target="_blank" rel="noopener noreferrer">
+                        <a href="cuestionario-cualitativo.html" class="action-btn" target="_blank"
+                            rel="noopener noreferrer">
                             📄 Ver Caso Práctico (HTML)
                         </a>
                     </div>
@@ -290,6 +338,28 @@
     </main>
 
     <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/david-huaman-innovacion-educativa/" target="_blank">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:davidfernando.huaman@unmsm.edu.pe">
+                    <span>Contacto Email</span>
+                </a>
+                <a href="https://davidhuamanroman.com">
+                    <span>davidhuamanroman.com</span>
+                </a>
+            </div>
+            <p class="footer-copyright">© <span id="year">2025</span> David Huamán Román. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- <footer class="main-footer">
         <div class="container">
             <p>© 2025 David Huamán Román. Todos los derechos reservados.</p>
             <div class="social-links">
@@ -297,7 +367,8 @@
                 <a href="mailto:davidfernando.huaman@unmsm.edu.pe">Email</a>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
 </body>
+
 </html>

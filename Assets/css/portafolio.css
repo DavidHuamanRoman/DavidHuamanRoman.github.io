@@ -1,0 +1,105 @@
+/* --- ESTILOS DE LA PÁGINA PRINCIPAL DEL PORTAFOLIO --- */
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(10, 37, 64, 0.1);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Botones dentro de las tarjetas */
+.card .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.card .btn:hover {
+  background-color: #00a986; /* Un tono un poco más oscuro para el hover */
+}
+
+.card .btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.card .btn-group .btn {
+  width: 100%;
+}
+
+.card .btn.secondary {
+  background-color: var(--primary-color);
+}
+
+.card .btn.secondary:hover {
+  background-color: #081c30;
+}
+
+.card .btn .icon {
+  margin-right: 6px;
+  font-size: 0.95rem;
+}
+
+/* Responsivo específico para el portafolio */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  .page-header p {
+    font-size: 1rem;
+  }
+}

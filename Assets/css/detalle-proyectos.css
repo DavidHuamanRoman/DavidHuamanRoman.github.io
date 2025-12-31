@@ -1,0 +1,186 @@
+/* --- ESTILOS PARA PÁGINAS DE DETALLE DE PROYECTO --- */
+
+.project-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+}
+
+/* Enlaces de retorno */
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--accent-color);
+}
+
+/* Tipografía del contenido */
+.project-wrapper h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.project-wrapper h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project-wrapper h3 {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.project-wrapper p {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.project-wrapper strong {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.project-wrapper hr {
+  border: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  margin: 1rem 0 2rem 0;
+  width: 80px;
+}
+
+.project-divider {
+  height: 1px;
+  background-color: #e9ecef;
+  width: 100%;
+  margin: 4rem 0;
+}
+
+/* Listas personalizadas */
+.project-wrapper ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.project-wrapper li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.project-wrapper li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Botones de acción (Descargar / Ver / Jugar) */
+.action-button-wrapper,
+.download-button-wrapper {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.action-btn,
+.download-btn {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0, 196, 154, 0.2);
+}
+
+.action-btn:hover,
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 196, 154, 0.4);
+}
+
+/* --- ESPECÍFICO PARA VIDEO / PLAYLISTS --- */
+.intro-text {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 3rem;
+}
+
+.playlist-section {
+  margin-bottom: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.playlist-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.playlist-description {
+  margin-bottom: 1rem;
+}
+
+.playlist-syllabus {
+  background-color: #f1f3f5;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  border-left: 4px solid var(--accent-color);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-wrapper {
+    padding: 2rem;
+  }
+  .project-wrapper h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-wrapper {
+    padding: 1.5rem;
+  }
+}

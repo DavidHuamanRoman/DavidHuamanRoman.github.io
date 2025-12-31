@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseño Curricular: Sílabo de Evaluación Crediticia | David Huamán Román</title>
-    <meta name="description" content="Detalles sobre el diseño del sílabo para el curso 'Evaluación Crediticia de MyPEs' de la carrera de Administración Bancaria.">
+    <meta name="description"
+        content="Detalles sobre el diseño del sílabo para el curso 'Evaluación Crediticia de MyPEs' de la carrera de Administración Bancaria.">
     <link rel="icon" href="/Assets/favicon.png" type="image/png">
-    <style>
+    <link rel="stylesheet" href="Assets/css/global.css">
+    <link rel="stylesheet" href="Assets/css/detalle-proyectos.css">
+    <!-- <style>
         /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS (IDÉNTICO A PÁGINAS ANTERIORES) */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap');
 
@@ -231,20 +235,29 @@
             .container { padding: 0 1rem; }
             .project-wrapper { padding: 1.5rem; }
         }
-    </style>
+    </style> -->
 </head>
+
 <body>
 
     <header class="main-header">
         <div class="container">
             <a href="index.html" class="logo">David Huamán Román</a>
             <nav class="main-nav">
-                <ul>
+                <!-- <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="filosofia-docente.html">Filosofía Docente</a></li>
                     <li><a href="portafolio.html" class="active">Portafolio de Evidencias</a></li>
                     <li><a href="#">Trayectoria Profesional</a></li>
                     <li><a href="#">Contacto</a></li>
+                </ul> -->
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="filosofia-docente.html">Filosofía Docente</a></li>
+                    <li><a href="portafolio.html" class="active">Portafolio de Evidencias</a></li>
+                    <li><a href="index.html#trayectoria">Trayectoria Profesional</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="/cv" target="_blank" class="cv-menu-link">Visualizar CV</a></li>
                 </ul>
             </nav>
         </div>
@@ -254,16 +267,18 @@
         <div class="container">
             <div class="project-wrapper">
                 <a href="portafolio.html" class="back-link">‹ Volver al Portafolio</a>
-                
+
                 <h1>Diseño Curricular y Sílabos</h1>
                 <hr>
 
                 <article>
                     <h2>Sílabo del Curso: Evaluación Crediticia de MyPEs</h2>
-                    
+
                     <h3>Contexto</h3>
-                    <p>Este sílabo fue diseñado para la carrera de Administración Bancaria, con el objetivo de estructurar un curso completo que brinde a los estudiantes las competencias teóricas y prácticas para evaluar créditos de micro y pequeñas empresas.</p>
-                    
+                    <p>Este sílabo fue diseñado para la carrera de Administración Bancaria, con el objetivo de
+                        estructurar un curso completo que brinde a los estudiantes las competencias teóricas y prácticas
+                        para evaluar créditos de micro y pequeñas empresas.</p>
+
                     <h3>Objetivos de Aprendizaje</h3>
                     <ul>
                         <li>Al finalizar el curso, el estudiante será capaz de analizar estados financieros.</li>
@@ -272,14 +287,18 @@
                     </ul>
 
                     <h3>Mi Contribución en el Diseño</h3>
-                    <p>Fui responsable de definir la estructura modular del curso, seleccionar la bibliografía, diseñar las actividades prácticas semanales y crear los instrumentos de evaluación, asegurando el alineamiento con las competencias requeridas por el sector financiero.</p>
+                    <p>Fui responsable de definir la estructura modular del curso, seleccionar la bibliografía, diseñar
+                        las actividades prácticas semanales y crear los instrumentos de evaluación, asegurando el
+                        alineamiento con las competencias requeridas por el sector financiero.</p>
 
                     <h3>Impacto</h3>
-                    <p>El diseño de este sílabo ha permitido estandarizar la enseñanza del curso, garantizando una alta calidad académica y una formación pertinente que mejora la empleabilidad de los egresados.</p>
+                    <p>El diseño de este sílabo ha permitido estandarizar la enseñanza del curso, garantizando una alta
+                        calidad académica y una formación pertinente que mejora la empleabilidad de los egresados.</p>
                 </article>
 
                 <div class="action-button-wrapper">
-                    <a href="Assets/Sílabo-Evaluación-Crediticia.pdf" class="action-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="Assets/Sílabo-Evaluación-Crediticia.pdf" class="action-btn" target="_blank"
+                        rel="noopener noreferrer">
                         🔗 Ver Sílabo Completo (PDF)
                     </a>
                 </div>
@@ -287,8 +306,28 @@
             </div>
         </div>
     </main>
-
     <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/david-huaman-innovacion-educativa/" target="_blank">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:davidfernando.huaman@unmsm.edu.pe">
+                    <span>Contacto Email</span>
+                </a>
+                <a href="https://davidhuamanroman.com">
+                    <span>davidhuamanroman.com</span>
+                </a>
+            </div>
+            <p class="footer-copyright">© <span id="year">2025</span> David Huamán Román. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <!-- <footer class="main-footer">
         <div class="container">
             <p>© 2025 David Huamán Román. Todos los derechos reservados.</p>
             <div class="social-links">
@@ -296,7 +335,8 @@
                 <a href="mailto:davidfernando.huaman@unmsm.edu.pe">Email</a>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
 </body>
+
 </html>

@@ -1,0 +1,282 @@
+/* --- General Body & Typography --- */
+body {
+  font-family: var(--font-body);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+}
+
+/* --- Main Container --- */
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px 30px;
+}
+
+/* --- Headings & Visual Hierarchy --- */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-size: 2.2em;
+  text-align: center;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: 1.6em;
+  color: var(--primary-color);
+  border-left: 4px solid var(--accent-color);
+  padding-left: 10px;
+  margin-top: 40px;
+}
+
+/* --- Estilo para el Bloque del Caso --- */
+.case-study-block {
+  background-color: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-size: 1.05em;
+}
+
+.case-study-block h2 {
+  font-size: 1.8em;
+  color: var(--primary-color);
+  border-left: none;
+  padding-left: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+.case-study-block h3 {
+  font-size: 1.3em;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 5px;
+}
+
+.case-study-block h4 {
+  font-size: 1.1em;
+  color: #333;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.case-study-block p {
+  margin-bottom: 15px;
+}
+
+.case-study-block ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.case-study-block ul li {
+  margin-bottom: 8px;
+}
+
+/* --- Question Styling --- */
+.question-block {
+  background-color: var(--background-color);
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 25px;
+}
+
+.question-block p {
+  margin-top: 0;
+  font-size: 1.1em;
+}
+
+.question-block .question-title {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.options-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.options-list li {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  cursor: default;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.options-list li:hover {
+  background-color: #f7f7f7;
+  border-color: #b0b0b0;
+}
+
+/* --- Association Table Styling --- */
+.association-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.association-table td {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.association-table td:first-child {
+  font-weight: 600;
+  background-color: #f7f9fa;
+}
+
+/* --- Details/Summary for Answers --- */
+details {
+  margin-top: 20px;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  background-color: #f0fdf9;
+}
+
+summary {
+  padding: 12px 15px;
+  font-weight: 600;
+  color: var(--primary-color);
+  cursor: pointer;
+  outline: none;
+  display: block;
+  list-style: none;
+  position: relative;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:hover {
+  background-color: #e0fbf4;
+}
+
+/* Flecha personalizada para <summary> */
+summary::after {
+  content: "►";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+  color: var(--primary-color);
+  transition: transform 0.2s ease;
+}
+
+details[open] > summary::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.justification {
+  padding: 15px;
+  border-top: 1px solid var(--accent-color);
+  background-color: #ffffff;
+  border-radius: 0 0 8px 8px;
+}
+
+.justification strong {
+  color: var(--primary-color);
+}
+
+.correct-answer {
+  font-weight: bold;
+  color: #1e8e3e;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Viñetas personalizadas para la justificación */
+.custom-bullet {
+  list-style-type: none;
+  padding: 0;
+}
+
+.custom-bullet li {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="%2300C49A" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>')
+    no-repeat left 0.15em / 20px 20px;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  .quiz-container {
+    padding: 15px;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
+
+  .case-study-block h2 {
+    font-size: 1.5em;
+  }
+
+  .case-study-block h3 {
+    font-size: 1.2em;
+  }
+
+  /* Ajuste de tabla para móviles */
+  .association-table,
+  .association-table tbody,
+  .association-table tr,
+  .association-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .association-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+  }
+
+  .association-table td {
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left;
+  }
+
+  .association-table td:last-child {
+    border-bottom: none;
+  }
+
+  .association-table td:first-child {
+    border-radius: 4px 4px 0 0;
+  }
+}
