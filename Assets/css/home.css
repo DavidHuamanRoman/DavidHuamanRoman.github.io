@@ -25,20 +25,94 @@
 
 .hero-image {
   flex: 1;
-  max-width: 400px; /* Damos un poco más de espacio al contenedor */
-  /* Cambio clave: Alinear a la derecha para coincidir con el menú */
+  max-width: 400px;
   text-align: right;
   display: flex;
-  justify-content: flex-end; /* Asegura que flexbox también lo empuje */
+  justify-content: flex-end;
+  align-items: center; /* Centra verticalmente si sobra espacio */
+  position: relative; /* INDISPENSABLE para que lo de adentro flote */
+  flex-direction: column;
 }
 
-.hero-image img {
+.hero-image .profile-pic {
   width: 100%;
-  max-width: 320px; /* Tamaño controlado de la foto */
+  max-width: 320px;
   height: auto;
   border-radius: 50%;
   border: 5px solid white;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.floating-badge {
+  position: absolute;
+  /* AJUSTE DE POSICIÓN: Lo bajamos y lo movemos a la izquierda */
+  bottom: 5px;
+  right: 220px; /* Usamos RIGHT en vez de LEFT para anclarlo relativo a la foto que está a la derecha */
+
+  background-color: #ffffff;
+  padding-top: 2px; /* Menos relleno para que sea más estilizado */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  gap:0;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 10;
+
+  /* Forma rectangular para acomodar el logo ancho */
+  width: 180px;
+  height: auto; /* Altura automática según el contenido */
+}
+
+.badge-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #555;
+  font-weight: 800;  
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.floating-badge img {
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+  /* Ajuste para que el logo no se vea pegado a los bordes */
+  padding: 2px 0;
+  margin-top: -4px;
+}
+
+.floating-badge:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(52, 168, 83, 0.3);
+  border-color: #34a853;
+}
+
+/* Ajuste Responsivo para móviles */
+@media (max-width: 768px) {
+  .hero-image {
+    justify-content: center; /* En móvil centramos todo */
+    margin-top: 2rem;
+  }
+
+  .floating-badge {
+    right: auto; /* Reseteamos la posición derecha */
+    left: 50%; /* Centramos */
+    transform: translateX(-140%); /* Lo movemos a la izquierda del centro */
+    bottom: 0px;
+  }
+
+  .floating-badge:hover {
+    transform: translateX(-140%) translateY(-5px) scale(1.05);
+  }
 }
 
 .hero-content {
