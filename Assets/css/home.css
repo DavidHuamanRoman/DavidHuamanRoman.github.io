@@ -1,19 +1,10 @@
-/* --- HERO --- */
-/* .hero {
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-  padding: 4rem 0;
-} */
-
+/* --- HERO SECTION --- */
 .hero {
   min-height: 85vh;
   display: flex;
   align-items: center;
   padding: 4rem 0;
-  /* Cambio: Gradiente sutil en vez de blanco plano */
   background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
-  /* El #f0fdfa es un turquesa muy muy pálido, casi blanco */
 }
 
 .hero .container {
@@ -21,17 +12,18 @@
   align-items: center;
   justify-content: space-between;
   gap: 3rem;
+  position: relative;
 }
 
+/* Imagen y Badge */
 .hero-image {
   flex: 1;
   max-width: 400px;
-  text-align: right;
+  /* Usamos Flex para centrar la imagen dentro de su contenedor */
   display: flex;
-  justify-content: flex-end;
-  align-items: center; /* Centra verticalmente si sobra espacio */
-  position: relative; /* INDISPENSABLE para que lo de adentro flote */
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Clave para el badge absoluto */
 }
 
 .hero-image .profile-pic {
@@ -43,51 +35,43 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* Badge Flotante (Google Educator) */
 .floating-badge {
   position: absolute;
-  /* AJUSTE DE POSICIÓN: Lo bajamos y lo movemos a la izquierda */
-  bottom: 5px;
-  right: 220px; /* Usamos RIGHT en vez de LEFT para anclarlo relativo a la foto que está a la derecha */
+  /* Posición Desktop: Abajo a la izquierda de la imagen */
+  bottom: 10px;
+  left: -20px;
 
   background-color: #ffffff;
-  padding-top: 2px; /* Menos relleno para que sea más estilizado */
+  padding-top: 2px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  gap:0;
   border: 1px solid #e9ecef;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   z-index: 10;
-
-  /* Forma rectangular para acomodar el logo ancho */
-  width: 180px;
-  height: auto; /* Altura automática según el contenido */
+  width: 160px; /* Ancho controlado */
 }
 
 .badge-label {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   text-transform: uppercase;
   color: #555;
-  font-weight: 800;  
+  font-weight: 800;
   letter-spacing: 0.5px;
   line-height: 1.2;
+  margin-top: 4px;
 }
 
 .floating-badge img {
   width: 100%;
   height: auto;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
   display: block;
-  /* Ajuste para que el logo no se vea pegado a los bordes */
   padding: 2px 0;
-  margin-top: -4px;
 }
 
 .floating-badge:hover {
@@ -96,25 +80,7 @@
   border-color: #34a853;
 }
 
-/* Ajuste Responsivo para móviles */
-@media (max-width: 768px) {
-  .hero-image {
-    justify-content: center; /* En móvil centramos todo */
-    margin-top: 2rem;
-  }
-
-  .floating-badge {
-    right: auto; /* Reseteamos la posición derecha */
-    left: 50%; /* Centramos */
-    transform: translateX(-140%); /* Lo movemos a la izquierda del centro */
-    bottom: 0px;
-  }
-
-  .floating-badge:hover {
-    transform: translateX(-140%) translateY(-5px) scale(1.05);
-  }
-}
-
+/* Contenido de Texto */
 .hero-content {
   flex: 2;
 }
@@ -122,31 +88,29 @@
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
 .hero-content .subtitle {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
+  color: var(--primary-color);
 }
 
 .hero-content .value-proposition {
   line-height: 1.8;
+  font-size: 1rem;
 }
 
-/* .cta-button {
-  display: inline-block;
-  background-color: var(--accent-color);
-  color: #ffffff;
-  font-family: var(--font-heading);
-  font-weight: 600;
-  padding: 0.8rem 2rem;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-} */
+/* Botones CTA */
+.cta-container {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
 
-/* 1. Botón Principal (Explorar mi trabajo) */
 .cta-button {
   display: inline-block;
   background-color: var(--accent-color);
@@ -156,31 +120,18 @@
   padding: 0.8rem 2rem;
   border-radius: 5px;
   text-decoration: none;
-  border: 2px solid var(--accent-color); /* Añadido para igualar tamaño */
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición más fluida */
+  border: 2px solid var(--accent-color);
+  transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 196, 154, 0.2);
 }
 
 .cta-button:hover {
-  background-color: #00a07d; /* Un verde un poco más oscuro */
+  background-color: #00a07d;
   border-color: #00a07d;
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 196, 154, 0.4); /* Sombra difusa al flotar */
+  box-shadow: 0 10px 20px rgba(0, 196, 154, 0.4);
 }
 
-/* .cta-button-secondary {
-  display: inline-block;
-  background-color: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  font-weight: 600;
-  padding: 0.8rem 2rem;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-left: 1rem;
-  transition: all 0.3s ease;
-} */
-/* 2. Botón Secundario (Visualizar CV) */
 .cta-button-secondary {
   display: inline-block;
   background-color: transparent;
@@ -191,18 +142,15 @@
   padding: 0.8rem 2rem;
   border-radius: 5px;
   text-decoration: none;
-  margin-left: 1rem;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.cta-button-secondary:hover {
-  background-color: var(--primary-color); /* Se llena de azul oscuro */
-  color: #ffffff; /* Texto cambia a blanco */
-  transform: translateY(-3px); /* Pequeña elevación */
-  box-shadow: 0 10px 20px rgba(10, 37, 64, 0.2); /* Sombra suave */
+  /* margin-left: 1rem; Eliminado para usar GAP en el contenedor */
+  transition: all 0.3s ease;
 }
 
-.cta-container {
-  margin-top: 2.5rem; /* Aumenta este número si quieres más espacio */
+.cta-button-secondary:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(10, 37, 64, 0.2);
 }
 
 /* --- TRAYECTORIA --- */
@@ -219,31 +167,102 @@
 
 .experience-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* Por defecto 2 columnas */
   gap: 2rem;
 }
-
-/* .exp-card {
-  background: var(--background-color);
-  padding: 2rem;
-  border-radius: 10px;
-  border-left: 5px solid var(--accent-color);
-} */
 
 .exp-card {
   background: var(--background-color);
   padding: 2rem;
   border-radius: 10px;
   border-left: 5px solid var(--accent-color);
-  /* Nuevas propiedades para la animación */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
-  cursor: default; /* Indica que es informativo */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
 }
 
 .exp-card:hover {
-  transform: translateY(-5px); /* Se eleva */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); /* Sombra suave */
-  background-color: #ffffff; /* Se vuelve blanco puro para destacar del fondo gris */
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+}
+
+.exp-card .date {
+  display: block;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.exp-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+/* --- CERTIFICADOS VERTICALES --- */
+.certifications-strip {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 3rem 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.certifications-strip .title {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.cert-list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cert-card-vertical {
+  background: white;
+  width: 240px;
+  padding: 2rem 1rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.cert-card-vertical:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  border-color: #e0e0e0;
+}
+
+.cert-logo-img-large {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.cert-name {
+  display: block;
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.cert-validity {
+  display: block;
+  font-size: 0.7rem;
+  color: #666;
+  background: #f0f2f5;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
 }
 
 /* --- LOGOS --- */
@@ -254,11 +273,10 @@
   text-align: center;
 }
 
-.logo-gallery h3 {
+.logo-gallery .title {
   font-size: 1rem;
   color: #666;
-  /* ASEGÚRATE DE QUE ESTA LÍNEA EXISTA Y TENGA UN VALOR ALTO */
-  margin-bottom: 3.5rem; /* Antes era 2.5rem, lo aumentamos para más aire */
+  margin-bottom: 2.5rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -281,6 +299,7 @@
 .logo-item:hover {
   filter: grayscale(0%);
   opacity: 1;
+  transform: scale(1.1);
 }
 
 /* --- CONTACT CTA --- */
@@ -310,4 +329,68 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  transition: color 0.3s;
+}
+
+.contact-item:hover {
+  color: var(--accent-color);
+}
+
+/* =========================================
+   MEDIA QUERIES (MOBILE OPTIMIZATION)
+   ========================================= */
+
+@media (max-width: 768px) {
+  /* 1. HERO: Invertimos el orden para que la foto quede arriba */
+  .hero .container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .cta-container {
+    justify-content: center; /* Centrar botones */
+  }
+
+  /* 2. BADGE MOVIL: Lo ponemos abajo al centro */
+  .floating-badge {
+    position: absolute;
+    left: 50%;
+    bottom: -20px; /* Que sobresalga un poco por abajo */
+    transform: translateX(-50%); /* Centrado matemático */
+    width: 140px;
+    background: white;
+    z-index: 20;
+    right: auto; /* Anulamos estilos desktop */
+  }
+
+  .floating-badge:hover {
+    /* Mantenemos el centrado al hacer hover */
+    transform: translateX(-50%) translateY(-5px) scale(1.05);
+  }
+
+  /* 3. TRAYECTORIA: 1 Columna */
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 4. LOGOS: Más pequeños y juntos */
+  .logo-container {
+    gap: 2rem;
+  }
+  .logo-item {
+    max-width: 100px;
+  }
+
+  /* 5. CONTACTO: Stack vertical */
+  .contact-info {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
 }
