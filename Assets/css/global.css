@@ -56,7 +56,6 @@ h3 {
   display: flex;
   align-items: center;
   gap: 3rem;
-  /* MOBILE FIX: Permitir que los elementos bajen si no caben */
   flex-wrap: wrap;
 }
 
