@@ -11,10 +11,14 @@
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
 }
 
+/* .content-wrapper .main {
+  text-align: center; margin-bottom: 2rem;
+} */
+
 .content-wrapper h1 {
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .content-wrapper h2 {
@@ -27,6 +31,10 @@
 
 .content-wrapper p {
   margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .content-wrapper li {
@@ -42,4 +50,122 @@
   left: 0;
   color: var(--accent-color);
   font-weight: bold;
+}
+/* --- MEJORAS PARA FILOSOFÍA DOCENTE --- */
+
+/* 1. Cita Destacada (Para el "Core Belief") */
+.highlight-quote {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--primary-color);
+  border-left: 3px solid var(--accent-color);
+  border-right: 3px solid var(--accent-color);
+  padding: 1rem 2rem;
+  background: #f4fbf9; /* Un tono muy suave de tu verde */
+  margin: 2rem 0;
+  font-style: italic;
+  border-radius: 8px;
+}
+
+/* 2. Grid de Estrategias (Reemplaza la lista simple) */
+.strategies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.strategy-card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+  border-top: 4px solid var(--primary-color);
+}
+
+.strategy-card:hover {
+  transform: translateY(-5px);
+  border-top-color: var(--accent-color);
+}
+
+.strategy-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+}
+
+.strategy-card p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  /* line-height: 1.5; */
+  color: #555;
+}
+
+/* 3. Firma al final */
+.signature-section {
+  margin-top: 3rem;
+  text-align: right;
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+}
+
+.signature-img {
+  height: 60px; /* Si tienes una imagen de tu firma */
+  opacity: 0.8;
+}
+
+.signature-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: block;
+}
+
+.signature-role {
+  font-size: 0.85rem;
+  color: #777;
+  display: block;
+}
+
+/* Ajustes de la sección de firma */
+.signature-section {
+  margin-top: 2rem;
+  text-align: right;
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column; /* Apila imagen y texto verticalmente */
+  align-items: flex-end; /* Fuerza la alineación a la derecha */
+}
+
+/* Control del tamaño de la imagen de la firma */
+.signature-img {
+  width: 200px; /* Ajusta este valor según qué tan grande quieras la firma */
+  height: auto; /* Mantiene la proporción */
+  margin-bottom: 0.5rem; /* Espacio entre la firma garabateada y tu nombre en texto */
+  opacity: 0.85; /* Un poco de transparencia para que parezca tinta real */
+
+  /* TRUCO PRO: Si tu PNG tiene fondo blanco y no transparente, 
+       descomenta la siguiente línea para que el blanco se vuelva transparente visualmente: */
+  /* mix-blend-mode: multiply; */
+}
+
+.signature-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.signature-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.signature-role {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 2px;
 }

@@ -1,4 +1,7 @@
 /* --- ESTILOS DE LA PÁGINA PRINCIPAL DEL PORTAFOLIO --- */
+.content-page {
+  padding: 4rem 0; /* Agrega aire arriba y abajo del contenido */
+}
 
 .page-header {
   text-align: center;

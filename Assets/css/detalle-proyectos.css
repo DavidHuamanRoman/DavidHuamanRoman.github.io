@@ -1,4 +1,7 @@
 /* --- ESTILOS PARA PÁGINAS DE DETALLE DE PROYECTO --- */
+.content-page {
+  padding: 4rem 0; /* Agrega aire arriba y abajo del contenido */
+}
 
 .project-wrapper {
   max-width: 800px;
