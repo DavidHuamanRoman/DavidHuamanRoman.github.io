@@ -9,406 +9,13 @@
         content="Portafolio profesional de David Huamán Román, docente y capacitador especializado en Microfinanzas.">
     <meta property="og:title" content="David Huamán Román | Innovación Educativa y Finanzas">
     <meta property="og:description"
-        content="Explora mi trayectoria de 15 años en docencia superior y mi portafolio de evidencias digitales.">
+        content="Explora mi trayectoria de 10 años en docencia superior y mi portafolio de evidencias digitales.">
     <meta property="og:image" content="https://davidhuamanroman.com/Assets/DFHR-2.png">
     <meta property="og:url" content="https://davidhuamanroman.com/">
     <meta property="og:type" content="website">
     <link rel="icon" href="/Assets/favicon.png" type="image/png">
     <link rel="stylesheet" href="Assets/css/global.css">
     <link rel="stylesheet" href="Assets/css/home.css">
-    <!-- <style>
-        /* 1. IMPORTACIÓN DE FUENTES Y VARIABLES CSS */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap');
-
-        :root {
-            --background-color: #F8F9FA;
-            --primary-color: #0A2540;
-            /* Azul oscuro */
-            --accent-color: #00C49A;
-            /* Verde/turquesa */
-            --text-color: #333333;
-            --font-heading: 'Montserrat', sans-serif;
-            --font-body: 'Open Sans', sans-serif;
-        }
-
-        /* 2. RESET Y ESTILOS GLOBALES */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: var(--font-heading);
-            color: var(--primary-color);
-        }
-
-        /* 3. BARRA DE NAVEGACIÓN (HEADER) */
-        .main-header {
-            background-color: #FFFFFF;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .main-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: nowrap;
-        }
-
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .main-nav ul {
-            display: flex;
-            list-style: none;
-            gap: 0.8rem;
-            align-items: center;
-        }
-
-        .main-nav a {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .main-nav a:hover {
-            color: var(--accent-color);
-        }
-
-        /* 4. SECCIÓN PRINCIPAL (HERO) */
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            padding: 4rem 0;
-        }
-
-        .hero .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 3rem;
-        }
-
-        .hero-image {
-            flex: 1;
-            max-width: 350px;
-            text-align: center;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-content {
-            flex: 2;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-content .value-proposition {
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #FFFFFF;
-            font-family: var(--font-heading);
-            font-weight: 600;
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 196, 154, 0.4);
-        }
-
-        /* 5. PIE DE PÁGINA (FOOTER) */
-        .main-footer {
-            text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid #e9ecef;
-        }
-
-        .main-footer p {
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .social-links a {
-            margin: 0 0.75rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .cv-menu-link {
-            border: 2px solid var(--accent-color);
-            padding: 4px 10px;
-            border-radius: 5px;
-            color: var(--accent-color) !important;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .cv-menu-link:hover {
-            background-color: var(--accent-color);
-            color: white !important;
-        }
-
-        /* Asegura que el nombre (logo) no se aplaste */
-        .logo {
-            flex-shrink: 0;
-            margin-right: 20px;
-        }
-
-        /* 6. DISEÑO RESPONSIVO */
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .main-nav {
-                display: none;
-                /* En un proyecto real, aquí se implementaría un menú hamburguesa con JS */
-            }
-
-            .hero .container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-image {
-                margin-bottom: 2rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content .subtitle {
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-        }
-
-        /* 7. SECCIÓN TRAYECTORIA */
-        .trajectory {
-            padding: 5rem 0;
-            background-color: #ffffff;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.2rem;
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .exp-card {
-            background: var(--background-color);
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 5px solid var(--accent-color);
-        }
-
-        .exp-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .exp-card .date {
-            display: block;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        /* 8. SECCIÓN CONTACTO */
-        .contact-cta {
-            padding: 5rem 0;
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-        }
-
-        .contact-cta h2 {
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .contact-item:hover {
-            color: var(--accent-color);
-        }
-
-        /* Ajuste para móviles */
-        @media (max-width: 768px) {
-            .experience-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .cta-button-secondary {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            font-family: var(--font-heading);
-            font-weight: 600;
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-left: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button-secondary:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        /* 9. GALERÍA DE LOGOTIPOS */
-        .logo-gallery {
-            margin-top: 4rem;
-            padding-top: 3rem;
-            border-top: 1px solid #e9ecef;
-            /* Línea sutil divisoria */
-            text-align: center;
-        }
-
-        .logo-gallery h3 {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 3.5rem;
-        }
-
-        .logo-item {
-            max-width: 130px;
-            height: auto;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .logo-item:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .logo-container {
-                gap: 2rem;
-            }
-
-            .logo-item {
-                max-width: 110px;
-            }
-        }
-    </style> -->
 </head>
 
 <body>
@@ -448,17 +55,16 @@
                 <h1>David Huamán Román</h1>
 
                 <p class="subtitle" style="position: relative; display: inline-block;">
-                    Instructor en Tecnología Crediticia aplicada a las Microfinanzas
+                    Instructor en Gestión Empresarial y Tecnología Crediticia
                     <span
                         style="display: block; width: 100%; height: 4px; background: var(--accent-color); margin-top: 5px; border-radius: 2px;"></span>
                 </p>
 
                 <p class="value-proposition">
-                    Soy un docente que conecta la industria financiera con el aula. Fusiono una década de experiencia en
-                    docencia superior con mi trayectoria en el sector bancario para transformar la educación en
+                    Soy un docente que conecta el mundo empresarial con el aula. Fusiono una década de experiencia en docencia superior con mi trayectoria en el sector bancario para transformar la educación en Gestión Empresarial y
                     Tecnología Crediticia. Mi enfoque es simple: usar la tecnología y la simulación práctica para que
                     mis estudiantes no solo aprendan la teoría, sino que desarrollen las competencias exactas que el
-                    mercado financiero demanda hoy.
+                    mercado demanda hoy.
                 </p>
 
                 <div class="cta-container">
@@ -485,43 +91,32 @@
             <h2 class="section-title">Trayectoria Profesional</h2>
 
             <div class="experience-grid">
-                <!-- <div class="exp-card"><span class="date">Diciembre 2025 -
-                        2028</span>
-                    <h3 style="display: flex; align-items: center; gap: 10px;">
-                        Google Certified Educator Nivel 1
-                    </h3>
-                    <p>Certificación internacional que valida mis competencias para integrar herramientas de Google
-                        (Classroom, Meet, Forms) en procesos pedagógicos innovadores y gestión educativa eficiente.</p>
-                </div> -->
+                
                 <div class="exp-card">
                     <span class="date">Vigente hasta 2029</span>
-                    <h3 style="display: flex; align-items: center; gap: 10px;">
-                        Google Certified Educator (Nivel 1 y 2)
-                    </h3>
-                    <p>Doble certificación internacional. Valida desde la integración fundamental hasta el uso avanzado
-                        de herramientas Google para potenciar la gestión educativa y la innovación pedagógica.</p>
+                    <h3>Google Certified Educator (Nivel 1 y 2)</h3>
+                    <p>Doble certificación internacional. Desde la integración fundamental hasta el uso avanzado de herramientas Google para potenciar la gestión educativa y la innovación pedagógica.</p>
                 </div>
-
+                
                 <div class="exp-card">
-                    <span class="date">15 años de experiencia</span>
+                    <span class="date">Actualidad</span>
+                    <h3>Educación y Business Intelligence</h3>
+                    <p>Culminando una Maestría en Educación con mención en E-Learning y desarrollando proyectos de Análisis de Datos aplicado a las finanzas.</p>
+                </div>
+                
+                <div class="exp-card">
+                    <span class="date">Más de 10 años de experiencia</span>
                     <h3>Docente de Educación Superior</h3>
-                    <p>Especialista en Administración y Microfinanzas. Enfocado en metodologías activas y herramientas
-                        EdTech para la formación de profesionales bancarios.</p>
+                    <p>Especialista en Gestión Empresarial y Tecnología Crediticia aplicada a las Microfinanzas. Enfocado en metodologías activas y herramientas EdTech para la formación de profesionales.</p>
                 </div>
 
                 <div class="exp-card">
-                    <span class="date">Más de 10 años</span>
+                    <span class="date">10 años de experiencia</span>
                     <h3>Experto en Sistema Financiero</h3>
-                    <p>Trayectoria en instituciones líderes como Caja Arequipa e Interbank, con dominio en tecnología
+                    <p>Trayectoria en instituciones líderes como Caja Arequipa, Interbank y Banco Compartamos con dominio en tecnología
                         crediticia, evaluación de riesgos y gestión operativa.</p>
                 </div>
 
-                <div class="exp-card">
-                    <span class="date">Actualidad</span>
-                    <h3>Business Intelligence y Educación</h3>
-                    <p>Especializándome en el análisis de datos aplicado a las finanzas para cerrar la brecha entre la
-                        analítica de negocios y la enseñanza técnica.</p>
-                </div>
 
                 <div class="exp-card">
                     <span class="date">Proyectos Especiales</span>
